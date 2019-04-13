@@ -4,14 +4,16 @@ var Person = require('../models/person');
 //#region Guardar
 function save(req,res){    
     var params = req.body;
-    if(params.name && params.lastname && params.surname && params.secondsurname  && params.email && params.birth && params.birth && religion
+//Campos requeridos    
+    if(params.name && params.lastname && params.surname && params.secondsurname && params.marriedsurname  && params.birth && params.religion
         && params.email && params.gender && params.department && params.municipality && params.zone && params.residential 
-        && params.avenue && params.street && params.sector && params.number && params.cellphone && params.house && params.other){ 
-    //Campos requeridos
+        && params.avenue && params.street && params.sector && params.number && params.cellphone && params.house){ 
+    
     var name = params.name;
     var lastname = params.lastname;
     var surname = params.surname;
     var secondsurname = params.secondsurname;
+    var marriedsurname = params.marriedsurname;
     var birth = params.birth;
     var religion = params.religion;
     var email = params.email;
@@ -28,7 +30,7 @@ function save(req,res){
     var house = params.house;
     var other = params.other;
 
-    Person.insertMany({'Name':name,'Lastname': lastname, 'Surname':surname,'SecondSurname':secondsurname, 
+    Person.insertMany({'Name':name,'Lastname': lastname, 'Surname':surname,'SecondSurname':secondsurname, 'MarriedSurname':marriedsurname, 
     'Birth':birth, 'Religion': religion, 'Email':email,'Gender':gender,'Address': {'Department':department, 'Municipality':municipality, 'Zone':zone,
     'Residential': residential, 'Avenue': avenue, 'Street':street, 'Sector': sector, 'Number':number}, 'Phones':{ 'Cellphone':cellphone,'House':house,'Phones.Other':other}   },(err,personSaved) =>{   
                 if(err){
@@ -41,6 +43,8 @@ function save(req,res){
                             }
                         }
                     });
+    }else{
+        res.status(200).send({message:'Ingrese todos los campos'});
     }
 }
 //#endregion
@@ -53,6 +57,7 @@ function update(req,res){
         var lastname = params.lastname;
         var surname = params.surname;
         var secondsurname = params.secondsurname;
+        var marriedsurname = params.marriedsurname;
         var birth = params.birth;
         var religion = params.religion;
         var email = params.email;
@@ -69,7 +74,7 @@ function update(req,res){
         var house = params.house;
         var other = params.other;
         
-        Person.findByIdAndUpdate(personId,{$set: {'Name':name,'Lastname': lastname, 'Surname':surname,'SecondSurname':secondsurname,    
+        Person.updateMany({_id:personId},{$set: {'Name':name,'Lastname': lastname, 'Surname':surname,'SecondSurname':secondsurname, 'MarriedSurname':marriedsurname,   
         'Birth':birth, 'Religion': religion, 'Email':email,'Gender':gender,'Address.Department':department, 'Address.Municipality':municipality, 'Address.Zone':zone,
         'Address.Residential': residential, 'Address.Avenue': avenue, 'Address.Street':street, 'Address.Sector': sector, 'Address.Number':number,'Phones.Cellphone':cellphone,'Phones.House':house,'Phones.Other':other} }, {New:true},(err,personUpdated)=>{
             
