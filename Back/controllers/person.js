@@ -68,8 +68,9 @@ function update(req,res){
         var cellphone = params.cellphone;
         var house = params.house;
         var other = params.other;
-            Person.findByIdAndUpdate(personId,{$set: {'Name':name,'Lastname': lastname, 'Surname':surname,'SecondSurname':secondsurname, 
-            'Birth':birth, 'Religion': religion, 'Email':email,'Gender':gender,'Address.Department':department, 'Address.Municipality':municipality, 'Address.Zone':zone,
+        
+        Person.findByIdAndUpdate(personId,{$set: {'Name':name,'Lastname': lastname, 'Surname':surname,'SecondSurname':secondsurname,    
+        'Birth':birth, 'Religion': religion, 'Email':email,'Gender':gender,'Address.Department':department, 'Address.Municipality':municipality, 'Address.Zone':zone,
         'Address.Residential': residential, 'Address.Avenue': avenue, 'Address.Street':street, 'Address.Sector': sector, 'Address.Number':number,'Phones.Cellphone':cellphone,'Phones.House':house,'Phones.Other':other} }, {New:true},(err,personUpdated)=>{
             
                 if(err){
