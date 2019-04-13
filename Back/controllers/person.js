@@ -2,10 +2,8 @@ var Person = require('../models/person');
 
 
 //#region Guardar
-function save(req,res){
-    
+function save(req,res){    
     var params = req.body;
-
     if(params.name && params.lastname && params.surname && params.secondsurname  && params.email && params.birth && params.birth && religion
         && params.email && params.gender && params.department && params.municipality && params.zone && params.residential 
         && params.avenue && params.street && params.sector && params.number && params.cellphone && params.house && params.other){ 
@@ -73,7 +71,6 @@ function update(req,res){
             Person.findByIdAndUpdate(personId,{$set: {'Name':name,'Lastname': lastname, 'Surname':surname,'SecondSurname':secondsurname, 
             'Birth':birth, 'Religion': religion, 'Email':email,'Gender':gender,'Address.Department':department, 'Address.Municipality':municipality, 'Address.Zone':zone,
         'Address.Residential': residential, 'Address.Avenue': avenue, 'Address.Street':street, 'Address.Sector': sector, 'Address.Number':number,'Phones.Cellphone':cellphone,'Phones.House':house,'Phones.Other':other} }, {New:true},(err,personUpdated)=>{
-
             
                 if(err){
                     res.status(500).send({message: 'Error al actualizar la persona'}); 
