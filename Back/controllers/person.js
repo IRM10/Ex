@@ -5,7 +5,7 @@ var Person = require('../models/person');
 function save(req,res){    
     var params = req.body;
 //Campos requeridos    
-    if(params.name && params.lastname && params.surname && params.secondsurname && params.marriedsurname  && params.birth && params.religion
+    if(params.name && params.lastname && params.surname && params.secondsurname  && params.birth && params.religion
         && params.email && params.gender && params.department && params.municipality && params.zone && params.residential 
         && params.avenue && params.street && params.sector && params.number && params.cellphone && params.house){ 
     
@@ -32,7 +32,7 @@ function save(req,res){
 
     Person.insertMany({'Name':name,'Lastname': lastname, 'Surname':surname,'SecondSurname':secondsurname, 'MarriedSurname':marriedsurname, 
     'Birth':birth, 'Religion': religion, 'Email':email,'Gender':gender,'Address': {'Department':department, 'Municipality':municipality, 'Zone':zone,
-    'Residential': residential, 'Avenue': avenue, 'Street':street, 'Sector': sector, 'Number':number}, 'Phones':{ 'Cellphone':cellphone,'House':house,'Phones.Other':other}   },(err,personSaved) =>{   
+    'Residential': residential, 'Avenue': avenue, 'Street':street, 'Sector': sector, 'Number':number}, 'Phones':{ 'Cellphone':cellphone,'House':house,'Other':other}, 'Rol_Familia':null   },(err,personSaved) =>{   
                 if(err){
                     res.status(500).send({message: 'Error al guardar Persona'});
                 }else{
@@ -125,9 +125,11 @@ function list(req,res){
 }
 //#endregion
 
+
 module.exports ={
  save,
  update,
  deleting,
- list
+ list,
+
 }

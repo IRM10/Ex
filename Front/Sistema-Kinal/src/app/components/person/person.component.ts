@@ -20,7 +20,9 @@ export class PersonComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.person);
+    this.rest.setPerson(this.person).subscribe(res=>{
+      console.log(res);
+    });
    }
 
   getData(){

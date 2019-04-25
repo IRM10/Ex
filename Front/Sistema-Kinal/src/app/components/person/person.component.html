@@ -1,152 +1,159 @@
 <header>
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</header>
-<body>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   
-
-<ul>
-  <li><a href="./inicio" >Inicio</a></li>
-  <li><a href="./person" class="actives">Person</a></li>
-</ul>
-<br>
-<br>
-<div class="container">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </header>
+  <body>
     
-      <div class="card-header">
-      <h1 class="titulos"> Registro de los datos generales de la Persona </h1>
-        
-      </div>
+  
+  <ul>
+    <li><a href="./inicio" >Inicio</a></li>
+    <li><a href="./person" class="actives">Person</a></li>
+  
+  </ul>
+  <br>
+  <br>
+  
+  <div class="container">
       
-      <form #formularioRegistro="ngForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="exampleInputEmail1">Nombre</label>
-          <input type="text" [(ngModel)]="person.Name" name="Name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe tu nombre">
+        <div class="card-header">
+        <h1 class="titulos"> Registro de los datos generales de la Persona </h1>
+          
         </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Primer Apellido</label>
-          <input type="text" [(ngModel)]="person.Surname" name="Surname" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu primer apellido">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Segundo Apellido</label>
-          <input type="text" [(ngModel)]="person.Lastname" name="Lastname" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu segundo apellido">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Apellido de Casada</label>
-          <input type="text" [(ngModel)]="person.SecondSurname" name="SecondSurname" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu apellido de casada (si lo tienes)">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Nacimiento</label>
-          <input type="text" [(ngModel)]="person.Birth" name="Birth" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu fecha de nacimiento">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Religión</label>
-          <input type="text" [(ngModel)]="person.Religion" name="Religion" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu religión">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">E-mail</label>
-          <input type="email" [(ngModel)]="person.Email" name="Email" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu correo electrónico">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Género</label>
-          <input type="text" [(ngModel)]="person.Gender" name="Gender" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu género">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
+        
+        <form #formularioRegistro="ngForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Primer Nombre</label>
+            <input type="text" [(ngModel)]="person.name" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe tu primer nombre">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Segundo Nombre</label>
+            <input type="text" [(ngModel)]="person.lastname" name="lastname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe tu segundo nombre">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Primer Apellido</label>
+            <input type="text" [(ngModel)]="person.surname" name="surname" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu primer apellido">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Segundo Apellido</label>
+            <input type="text" [(ngModel)]="person.secondsurname" name="secondsurname" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu segundo apellido">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Apellido de Casada</label>
+            <input type="text" [(ngModel)]="person.marriedsurname" name="marriedsurname" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu apellido de casada (si lo tienes)">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Nacimiento</label>
+   
+            <input type="text" [(ngModel)]="person.birth" name="birth" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu fecha de nacimiento">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Religión</label>
+            <input type="text" [(ngModel)]="person.religion" name="religion" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu religión">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">E-mail</label>
+            <input type="email" [(ngModel)]="person.email" name="email" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu correo electrónico">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Género</label>
+            <select  [(ngModel)]="person.gender" name="gender" class="browser-default custom-select" id="exampleInputPassword1" >
+              <option value="Masculino">Masculino</option>
+              <option value="Femenino">Femenino</option>
+              <option value="Femenino">Otro</option>
   
- <hr>
- <br>
-
-
- <div class="container">
-    
-      <div class="card-header">
-          <h1 class="titulos"> Registro de Direcciones de la Persona </h1>
+          
+            </select>
+           
+          </div>
+        
+          
+          
+  
+  
+  
+      
+        <div class="card-header">
+            <h1 class="titulos"> Registro de Direcciones de la Persona </h1>
+        </div>
+      
+          <div class="form-group">
+            <label for="exampleInputEmail1">Departamento</label>
+            <input type="text" [(ngModel)]="person.department" name="department" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe el nombre de tu Departamento">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Municipalidad</label>
+            <input type="text" [(ngModel)]="person.municipality" name="municipality" class="form-control" id="exampleInputPassword1" placeholder="Escribe el nombre de tu Municipalidad">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Zona</label>
+            <input type="text" [(ngModel)]="person.zone" name="zone" class="form-control" id="exampleInputPassword1" placeholder="Escribe el número de tu Zona Regional">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Residencial</label>
+            <input type="text" [(ngModel)]="person.residential" name="residential" class="form-control" id="exampleInputPassword1" placeholder="Escribe el nombre de tu Residencial">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Avenida</label>
+            <input type="text" [(ngModel)]="person.avenue" name="Avenue" class="form-control" id="exampleInputPassword1" placeholder="Escribe el nombre de tu Avenida de tu Residencia">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Calle</label>
+            <input type="email" [(ngModel)]="person.street" name="Street" class="form-control" id="exampleInputPassword1" placeholder="Escribe nombre de tu Calle de tu Residencia">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Sector</label>
+            <input type="text" [(ngModel)]="person.sector" name="Sector" class="form-control" id="exampleInputPassword1" placeholder="Escribe el nombre del Sector de tu Residencia">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Número de Casa</label>
+            <input type="text" [(ngModel)]="person.number" name="number" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu fecha de nacimiento">
+          </div>
+   
+  
+  
+  
+      
+        <div class="card-header">
+            <h1 class="titulos"> Registro de Numeros de Telefono de la Persona </h1>
+        </div>
+        
+          <div class="form-group">
+            <label for="exampleInputEmail1">Teléfono</label>
+            <input type="text" [(ngModel)]="person.cellphone" name="cellphone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe el número de tu Teléfono Celular">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Teléfono de Casa</label>
+            <input type="text" [(ngModel)]="person.house" name="house" class="form-control" id="exampleInputPassword1" placeholder="Escribe el número Telefónico de tu Residencia">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Otro</label>
+            <input type="text" [(ngModel)]="person.other" name="other" class="form-control" id="exampleInputPassword1" placeholder="Escribe Otro número Telefónico que poseas">
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar Formulario</button>
+        </form>
       </div>
-      <form #formularioRegistro2="ngForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="exampleInputEmail1">Departamento</label>
-          <input type="text" [(ngModel)]="person.Department" name="Department" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe el nombre de tu Departamento">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Municipalidad</label>
-          <input type="text" [(ngModel)]="person.Municipality" name="Municipality" class="form-control" id="exampleInputPassword1" placeholder="Escribe el nombre de tu Municipalidad">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Zona</label>
-          <input type="text" [(ngModel)]="person.Zone" name="Zone" class="form-control" id="exampleInputPassword1" placeholder="Escribe el número de tu Zona Regional">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Residencial</label>
-          <input type="text" [(ngModel)]="person.Residential" name="Residential" class="form-control" id="exampleInputPassword1" placeholder="Escribe el nombre de tu Residencial">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Nacimiento</label>
-          <input type="text" [(ngModel)]="person.Birth" name="Birth" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu fecha de nacimiento">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Avenida</label>
-          <input type="text" [(ngModel)]="person.Avenue" name="Avenue" class="form-control" id="exampleInputPassword1" placeholder="Escribe el nombre de tu Avenida de tu Residencia">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Calle</label>
-          <input type="email" [(ngModel)]="person.Street" name="Street" class="form-control" id="exampleInputPassword1" placeholder="Escribe nombre de tu Calle de tu Residencia">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Sector</label>
-          <input type="text" [(ngModel)]="person.Sector" name="Sector" class="form-control" id="exampleInputPassword1" placeholder="Escribe el nombre del Sector de tu Residencia">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>   
   
-    <hr>
+    
     <br>
-
-
-
-    <div class="container">
+    <br>
+  </body>
+    <footer>
+  <div class="footer-copyright text-center py-3">© 2019 Copyright:
+            <a href="https://www.kinal.org.gt/"> Kinal</a>
+          </div>
+      
     
-      <div class="card-header">
-          <h1 class="titulos"> Registro de Numeros de Telefono de la Persona </h1>
-      </div>
-      <form #formularioRegistro3="ngForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="exampleInputEmail1">Teléfono</label>
-          <input type="text" [(ngModel)]="person.Cellphone" name="Cellphone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe el número de tu Teléfono Celular">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Teléfono de Casa</label>
-          <input type="text" [(ngModel)]="person.House" name="House" class="form-control" id="exampleInputPassword1" placeholder="Escribe el número Telefónico de tu Residencia">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Otro</label>
-          <input type="text" [(ngModel)]="person.Other" name="Other" class="form-control" id="exampleInputPassword1" placeholder="Escribe Otro número Telefónico que poseas">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
+      </footer>
   
-  <br>
-  <br>
-</body>
-  <footer>
-<div class="footer-copyright text-center py-3">© 2019 Copyright:
-          <a href="https://www.kinal.org.gt/"> Kinal</a>
-        </div>
-    
+      
   
-    </footer>
-
-    
-
-
-
-
-
-
+  
+  
+  
+  
+  
+  

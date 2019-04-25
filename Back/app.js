@@ -14,11 +14,13 @@ app.use((req, res, next) => {
 });
 
 var person_routes = require('./routes/person');
+var family_routes = require('./routes/family');
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 app.use('/v1',person_routes);
+app.use('/v1',family_routes);
 
 
 
