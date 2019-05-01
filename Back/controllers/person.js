@@ -32,7 +32,7 @@ function save(req,res){
 
     Person.insertMany({'Name':name,'Lastname': lastname, 'Surname':surname,'SecondSurname':secondsurname, 'MarriedSurname':marriedsurname, 
     'Birth':birth, 'Religion': religion, 'Email':email,'Gender':gender,'Address': {'Department':department, 'Municipality':municipality, 'Zone':zone,
-    'Residential': residential, 'Avenue': avenue, 'Street':street, 'Sector': sector, 'Number':number}, 'Phones':{ 'Cellphone':cellphone,'House':house,'Other':other}, 'Rol_Familia':null   },(err,personSaved) =>{   
+    'Residential': residential, 'Avenue': avenue, 'Street':street, 'Sector': sector, 'Number':number}, 'Phones':{ 'Cellphone':cellphone,'House':house,'Other':other}  },(err,personSaved) =>{   
                 if(err){
                     res.status(500).send({message: 'Error al guardar Persona'});
                 }else{
