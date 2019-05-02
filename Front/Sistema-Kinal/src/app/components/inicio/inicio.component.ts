@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CachedResourceLoader } from '@angular/platform-browser-dynamic/src/resource_loader/resource_loader_cache';
 
 @Component({
   selector: 'app-inicio',

@@ -21,7 +21,7 @@
     display: inline-block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 18px 18px;
     text-decoration: none;
   }
   
@@ -66,3 +66,41 @@
       border: 1px solid black;
       border-collapse: collapse;
     }
+
+    body{
+      margin-top: 100px !important;
+  }
+  .btn{
+      background-color:#fff;
+      color: rgb(71, 115, 180);
+      border:2px solid rgb(71, 115, 180) !important;
+      border-radius: 0px !important;
+      font-size: 17px;
+      font-weight: 700;
+      position: relative;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      z-index: 1;
+      transition: all 0.6s ease 0s;
+      overflow: hidden;
+  }
+  .btn:hover{
+      color: #fff !important;
+  }
+  .btn:before{
+      background: rgb(71, 115, 180);
+      content: "";
+      height: 1000px;
+      left: 50%;
+      opacity: 1;
+      position: absolute;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%) rotate(45deg);
+      transition: all 0.2s linear 0s;
+      width: 0;
+      z-index: -1;
+  }
+  .btn:hover:before{
+      opacity: 1;
+      width: 100%;
+  }
