@@ -29,7 +29,7 @@
         <form #formularioRegistro="ngForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label for="exampleInputEmail1">Primer Nombre</label>
-            <input type="text" [(ngModel)]="person.name" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe tu primer nombre">
+            <input type="text" [(ngModel)]="person.name" required name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe tu primer nombre">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Segundo Nombre</label>
@@ -37,7 +37,7 @@
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Primer Apellido</label>
-            <input type="text" [(ngModel)]="person.surname" name="surname" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu primer apellido">
+            <input type="text" [(ngModel)]="person.surname" required name="surname" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu primer apellido">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Segundo Apellido</label>
