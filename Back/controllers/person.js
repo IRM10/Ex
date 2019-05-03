@@ -7,13 +7,13 @@ function save(req,res){
 //Campos requeridos    
     if(params.name && params.lastname && params.surname && params.secondsurname  && params.birth && params.religion
         && params.email && params.gender && params.department && params.municipality && params.zone && params.residential 
-        && params.avenue && params.street && params.sector && params.number && params.cellphone && params.house){ 
+        && params.avenue && params.street && params.sector && params.number && params.cellphone && params.house && params.status){ 
     
     var name = params.name;
     var lastname = params.lastname;
     var surname = params.surname;
     var secondsurname = params.secondsurname;
-    var marriedsurname = params.marriedsurname;
+    var marriedsurname = 'de ' + params.marriedsurname;
     var birth = params.birth;
     var religion = params.religion;
     var email = params.email;
@@ -29,9 +29,10 @@ function save(req,res){
     var cellphone = params.cellphone;
     var house = params.house;
     var other = params.other;
+    var status = params.status;
 
     Person.insertMany({'Name':name,'Lastname': lastname, 'Surname':surname,'SecondSurname':secondsurname, 'MarriedSurname':marriedsurname, 
-    'Birth':birth, 'Religion': religion, 'Email':email,'Gender':gender,'Address': {'Department':department, 'Municipality':municipality, 'Zone':zone,
+    'Birth':birth, 'Religion': religion, 'Email':email,'Gender':gender, 'Status': status, 'Address': {'Department':department, 'Municipality':municipality, 'Zone':zone,
     'Residential': residential, 'Avenue': avenue, 'Street':street, 'Sector': sector, 'Number':number}, 'Phones':{ 'Cellphone':cellphone,'House':house,'Other':other}  },(err,personSaved) =>{   
                 if(err){
                     res.status(500).send({message: 'Error al guardar Persona'});
@@ -73,9 +74,10 @@ function update(req,res){
         var cellphone = params.cellphone;
         var house = params.house;
         var other = params.other;
+        var status = params.status;
         
         Person.updateMany({_id:personId},{$set: {'Name':name,'Lastname': lastname, 'Surname':surname,'SecondSurname':secondsurname, 'MarriedSurname':marriedsurname,   
-        'Birth':birth, 'Religion': religion, 'Email':email,'Gender':gender,'Address.Department':department, 'Address.Municipality':municipality, 'Address.Zone':zone,
+        'Birth':birth, 'Religion': religion, 'Status': status, 'Email':email,'Gender':gender,'Address.Department':department, 'Address.Municipality':municipality, 'Address.Zone':zone,
         'Address.Residential': residential, 'Address.Avenue': avenue, 'Address.Street':street, 'Address.Sector': sector, 'Address.Number':number,'Phones.Cellphone':cellphone,'Phones.House':house,'Phones.Other':other} }, {New:true},(err,personUpdated)=>{
             
                 if(err){

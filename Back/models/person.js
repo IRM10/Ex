@@ -8,6 +8,7 @@ var personSchema = Schema ({
     Lastname: String,
     Surname: String,
     SecondSurname: String,
+    MarriedSurname: String,
     Birth: String,
     Religion: String,
     Email: String,
@@ -24,7 +25,8 @@ var personSchema = Schema ({
     Phones: Object,
     Cellphone: Number,
     House: Number,
-    Other: Number
+    Other: Number,
+    Status: String
 });
 
 module.exports = mongoose.model(

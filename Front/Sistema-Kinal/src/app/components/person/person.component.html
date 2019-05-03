@@ -1,10 +1,12 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
 <header>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </header>
-  
   <body>
     
   
@@ -16,12 +18,13 @@
   </ul>
   <br>
   <br>
-  
+
+
   <div class="container">
       
         <div class="card-header">
         <h1 class="titulos"> Registro de los datos generales de la Persona </h1>
-          
+
         </div>
         <form #formularioRegistro="ngForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
@@ -41,8 +44,8 @@
             <input type="text" [(ngModel)]="person.secondsurname" name="secondsurname" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu segundo apellido">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Apellido de Casada</label>
-            <input type="text" [(ngModel)]="person.marriedsurname" name="marriedsurname" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu apellido de casada (si lo tienes)">
+            <label for="exampleInputPassword1" *ngIf = "person.gender == 'Femenino' && person.status == 'Casado'" >Apellido de Casada</label>
+            <input type="text" id="casada"  [(ngModel)]="person.marriedsurname" *ngIf = "person.gender == 'Femenino' && person.status == 'Casado'" name="marriedsurname" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu apellido de casada (si lo tienes)">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Nacimiento</label>
@@ -53,28 +56,30 @@
             <label for="exampleInputPassword1">Religión</label>
             <input type="text" [(ngModel)]="person.religion" name="religion" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu religión">
           </div>
+          
           <div class="form-group">
             <label for="exampleInputPassword1">E-mail</label>
-            <input type="email" [(ngModel)]="person.email" name="email" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu correo electrónico">
+            <input type="email" [(ngModel)]="person.email" name="email" class="form-control" placeholder="Escribe tu correo electrónico">
           </div>
+
           <div class="form-group">
             <label for="exampleInputPassword1">Género</label>
-            <select  [(ngModel)]="person.gender" name="gender" class="browser-default custom-select" id="exampleInputPassword1" >
-              <option value="Masculino">Masculino</option>
-              <option value="Femenino">Femenino</option>
-              <option value="Femenino">Otro</option>
-  
-          
+            <select name="gender" [(ngModel)]="person.gender" class="browser-default custom-select" id="exampleInputPassword1" >
+              <option >Masculino</option>
+              <option >Femenino</option>
+              <option >Otro</option>
             </select>
-           
+            <div class="form-group">
+              <br>
+              <label for="exampleInputPassword1">Estado Civil</label>
+            <form action="">
+              <input type="radio" name="status" value="Soltero" [(ngModel)]="person.status" name="status"> Soltero<br>
+              <input type="radio" name="status" value="Casado" [(ngModel)]="person.status" name="status"> Casado<br>
+              <input type="radio" name="status" value="Viudo" [(ngModel)]="person.status" name="status"> Viudo
+            </form>
+           </div>
           </div>
-        
-          
-          
-  
-  
-  
-      
+
         <div class="card-header">
             <h1 class="titulos"> Registro de Direcciones de la Persona </h1>
         </div>
@@ -111,10 +116,6 @@
             <label for="exampleInputPassword1">Número de Casa</label>
             <input type="text" [(ngModel)]="person.number" name="number" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu fecha de nacimiento">
           </div>
-   
-  
-  
-  
       
         <div class="card-header">
             <h1 class="titulos"> Registro de Numeros de Telefono de la Persona </h1>
@@ -122,15 +123,15 @@
         
           <div class="form-group">
             <label for="exampleInputEmail1">Teléfono</label>
-            <input type="text" [(ngModel)]="person.cellphone" name="cellphone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe el número de tu Teléfono Celular">
+            <input type="text" [(ngModel)]="person.cellphone" name="cellphone" maxlength="8" minlength="8" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe el número de tu Teléfono Celular">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Teléfono de Casa</label>
-            <input type="text" [(ngModel)]="person.house" name="house" class="form-control" id="exampleInputPassword1" placeholder="Escribe el número Telefónico de tu Residencia">
+            <input type="text" [(ngModel)]="person.house" name="house" maxlength="8" minlength="8" class="form-control" id="exampleInputPassword1" placeholder="Escribe el número Telefónico de tu Residencia">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Otro</label>
-            <input type="text" [(ngModel)]="person.other" name="other" class="form-control" id="exampleInputPassword1" placeholder="Escribe Otro número Telefónico que poseas">
+            <input type="text" [(ngModel)]="person.other" name="other" maxlength="8" minlength="8" class="form-control" id="exampleInputPassword1" placeholder="Escribe Otro número Telefónico que poseas">
           </div>
           <button type="submit" class="btn btn-primary">Enviar Formulario</button>
         </form>
@@ -146,7 +147,7 @@
           </div>     
   </footer>
   
-      
+</html>      
   
   
   

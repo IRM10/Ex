@@ -4,6 +4,7 @@ export class Person {
     public Lastname: string,
     public Surname: string,
     public SecondSurname: string,
+    public MarriedSurname: string,
     public Birth: string,
     public Religion: string,
     public Email: string,
@@ -20,6 +21,7 @@ export class Person {
     public Phones: object,
     public Cellphone: number,
     public House: number,
-    public Other: number
+    public Other: number,
+    public Status: string
 ){}
 }
