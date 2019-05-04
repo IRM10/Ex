@@ -10,16 +10,18 @@ import { RestService } from '../../services/rest.service'
 
 export class PersonComponent implements OnInit {
 
-  mostrar: boolean = true;
-
+  
   person: Person;
   constructor(public rest: RestService) { 
+    this.text = ""
     this.rest.setPerson(this.person);
     this.person = new Person('','','','','','','','', '', null,'','','','','','','', null,null, null , null, null, '');
   }
+  public email = [];
+  public text: string;
   ngOnInit() {
     this.getData();
-    console.log(this.mostrar)
+  
   }
 
   onSubmit(){
@@ -27,6 +29,13 @@ export class PersonComponent implements OnInit {
       console.log(res);
     });
    }
+
+   addEmail(){
+    this.email.push(this.text)
+
+    console.log(this.email)
+    this.text = ""
+  }
 
   getData(){
     fetch('https://jsonplaceholder.typicode.com/todos/1')

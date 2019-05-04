@@ -5,6 +5,8 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { UnitsComponent } from './components/units/units.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { CareersComponent } from './components/careers/careers.component';
+import { Families } from './models/families/families';
+import { FamiliesComponent } from './components/families/families.component';
 
 
 const routes: Routes = [
@@ -14,6 +16,7 @@ const routes: Routes = [
   {path: 'units', component: UnitsComponent},
   {path: 'course', component: CoursesComponent},
   {path: 'career', component: CareersComponent},
+  {path: 'families', component: FamiliesComponent},
   {path: '**', component: InicioComponent}
 ];
 

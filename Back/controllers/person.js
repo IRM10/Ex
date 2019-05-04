@@ -13,7 +13,12 @@ function save(req,res){
     var lastname = params.lastname;
     var surname = params.surname;
     var secondsurname = params.secondsurname;
-    var marriedsurname = 'de ' + params.marriedsurname;
+    if(!params.marriedsurname ){
+        var marriedsurname =  + params.marriedsurname;
+    }else{
+        var marriedsurname = 'de ' + params.marriedsurname;
+    }
+    
     var birth = params.birth;
     var religion = params.religion;
     var email = params.email;
