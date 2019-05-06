@@ -1,106 +1,272 @@
-.actives {
-    background-color: #162d4e;
-    color: white;
-  }
-  
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,700|Shrikhand');
 
+$nav-item-bg-clr: #2269BB;
+$nav-item-bg-clr-hvr: #1E1E1E;
+$nav-item-txt-clr: white;
+$ts: 0.3s;
+$td: 0.05s;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+  background-image: url('http://www.lakeland-walker.com/wp-content/uploads/2018/03/Carmen-Norman-Photography-LFL-2017-001.jpg');
+  background-size: cover;
   
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: rgba(63, 80, 117, 0.993);
+  @media (min-width: 450px) {
+    font-size: 1.25rem;
+  }
+}
+
+.page-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  overflow: visible;
+  padding: 1rem;
+  z-index: 200;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  min-height: 100vh;
+  text-align: center;
+  color: white;
+}
+
+.page-tagline {
+  font-size: 0.75rem;
+  font-weight: 700;
+  z-index: 100;
+  
+  a {
+    color: darken($nav-item-bg-clr, 20%);
+    text-decoration: none;
+  }
+}
+
+.page-title {
+  margin-bottom: 1.5rem;
+  font-family: 'Shrikhand', serif;
+  font-size: 2rem;
+  line-height: 1.2;
+  
+  @media (min-width: 450px) {
+    font-size: 3rem;
+  }
+}
+
+nav {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 3rem 1rem 1rem;
+  width: 100vw;
+  min-height: 100vh;
+  text-align: center;
+  background-color: white;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: 
+    opacity $ts * 1.5 $ts * 1.5 ease,
+    transform 0s $ts * 4 ;
+}
+
+.menu ol {
+  background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/ales-krivec-38565-unsplash.jpg');
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  width: 100%;
+  
+  @media (min-width: 820px) {
+    grid-template-columns: repeat(4, 1fr);
   }
   
   li {
-    float: left;
+    display: grid;
+    grid-column: span 1;
+    grid-gap: 1rem;
+    overflow: hidden;
   }
   
-  li a, .boton {
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 18px 18px;
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    font-size: 1.25rem;
     text-decoration: none;
-  }
-  
-  li a:hover, .abajo:hover .boton {
-    background-color: rgb(71, 115, 180);
-    text-decoration: none;
-    color: white;
-  }
-  
-  li.abajo {
-    display: inline-block;
-  }
-  
-  .desplegable {
-    display: none;
-    position: absolute;
-    background-color: #d4d4d4;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .desplegable a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-  
-  .desplegable a:hover {background-color: #bebebe}
-  
-  .abajo:hover .desplegable {
-    display: block;
-  }
-  
-  a:link { 
-    text-decoration-line:none;  
-  } 
-  
-  table, th, td {
-      border: 1px solid black;
-      border-collapse: collapse;
+    color: $nav-item-bg-clr;
+    background-color: $nav-item-bg-clr;
+    border-radius: 2px;
+    
+    @media (min-width: 450px) {
+      font-size: 1.75rem;
     }
+  }
+}
 
-    body{
-      margin-top: 100px !important;
+.menu > ol > li:nth-child(n + 3) {
+  grid-column: span 2;
+}
+
+.menu .sub-menu {
+  padding: 0;
+  grid-template-columns: repeat(2, 1fr);
+  
+  @media (min-width: 500px) {
+    grid-template-columns: repeat(3, 1fr);
   }
-  .btn{
-      background-color:#fff;
-      color: rgb(71, 115, 180);
-      border:2px solid rgb(71, 115, 180) !important;
-      border-radius: 0px !important;
-      font-size: 17px;
-      font-weight: 700;
-      position: relative;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      z-index: 1;
-      transition: all 0.6s ease 0s;
-      overflow: hidden;
+  
+  li a {
+    font-size: 0.85rem;
+    color: darken($nav-item-bg-clr, 15%);
+    background-color: darken($nav-item-bg-clr, 15%);
+    
+    @media (min-width: 450px) {
+      font-size: 1rem;
+    }
   }
-  .btn:hover{
-      color: #fff !important;
+  
+  li:nth-child(3n) {
+    grid-column: span 2;
+
+    @media (min-width: 500px) {
+      grid-column: span 1;
+    }
   }
-  .btn:before{
-      background: rgb(71, 115, 180);
-      content: "";
-      height: 1000px;
-      left: 50%;
+}
+
+.menu-toggle {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 2px;
+  position: relative;
+  cursor: pointer;
+  width: 28px;
+  height: 22px;
+  z-index: 100;
+  
+  &:before {
+    content: '×';
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 2.4rem;
+    line-height: 0.4;
+    color: darken($nav-item-bg-clr, 20%);
+    z-index: 2;
+    opacity: 0;
+    transition: opacity $ts ease;
+  }
+  
+  span {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: darken($nav-item-bg-clr, 20%);
+    border-radius: 2px;
+    transition: transform $ts ease;
+    transform-origin: 100% 100%;
+    
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        transition-delay: $ts + ($td * $i);
+      }
+    }
+    
+    &:nth-child(1),
+    &:nth-child(2) {
+      grid-column: span 3;
+    }
+        
+    &:nth-child(3),
+    &:nth-child(6) {
+      grid-column: span 2;
+    }
+  
+    &:nth-child(4),
+    &:nth-child(5) {
+      grid-column: span 4;
+    }
+  }
+}
+
+#menu-toggle-input {
+  display: none;
+  
+  &:checked ~ .menu-toggle {
+    span {
+      transform: scaleX(0);
+      
+      @for $i from 1 through 6 {
+        &:nth-child(#{$i}) {
+          transition-delay: $td * $i;
+        }
+      }
+    }
+    
+    &:before {
       opacity: 1;
-      position: absolute;
-      top: 50%;
-      transform: translateX(-50%) translateY(-50%) rotate(45deg);
-      transition: all 0.2s linear 0s;
-      width: 0;
-      z-index: -1;
+      transition-delay: $ts * 2.5;
+    }
   }
-  .btn:hover:before{
-      opacity: 1;
-      width: 100%;
+  
+  &:checked ~ nav {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0s;
+    
+    a {
+      color: $nav-item-txt-clr;
+      transform: translate(0, 0);
+    }
+    
+    @for $i from 1 through 5 {
+      > ol > li:nth-child(#{$i}) > a {
+        transition: 
+          color $ts ($ts * 2.75),
+          transform $ts ($ts + $td * $i) ease;
+      }
+
+      .sub-menu > li:nth-child(#{$i}) > a {
+        transition: 
+          color $ts ($ts * 2.75),
+          transform $ts ($ts * 1.5 + $td * $i) ease;
+      }
+    }
   }
+}
+
+@for $i from 1 through 5 {
+  .menu > ol > li:nth-child(#{$i}) > a {
+    transform: translate(calc(-100% - 12px), 0);
+    transition: 
+      color $ts,
+      transform $ts ($ts / 2 + $td * $i) ease;
+  }
+  
+  .sub-menu > li:nth-child(#{$i}) > a {
+    transform: translate(0, calc(-100% - 12px));
+    transition: 
+      color $ts,
+      transform $ts ($ts / 2 + $td * $i) ease;
+  }
+}
