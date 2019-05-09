@@ -17,6 +17,7 @@ export class Person {
     public Avenue: string,
     public Street: string,
     public Sector: string,
+    public AddressComplete: string,
     public Number: number,
     public Phones: object,
     public Cellphone: number,
