@@ -11,7 +11,7 @@ var personSchema = Schema ({
     MarriedSurname: String,
     Birth: String,
     Religion: String,
-    Email: [String],
+    Email: Array,
     Gender: String,
     Address: Object,
     Department: String,
@@ -26,7 +26,8 @@ var personSchema = Schema ({
     Cellphone: Number,
     House: Number,
     Other: Number,
-    Status: String
+    Status: String,
+    AddressComplete: String
 });
 
 module.exports = mongoose.model(

@@ -15,28 +15,33 @@ export class PersonComponent implements OnInit {
   person: Person;
   constructor(public rest: RestService) { 
     this.text = ""
+
     this.rest.setPerson(this.person);
     this.person = new Person('','','','','','','',[''], '', null,'','','','','','','', null,null, null , null, null, '');
   }
   public email = [];
-  public text: string;
+  public text: String;
+
   ngOnInit() {
     this.getData();
   
   }
 
   onSubmit(){
+    this. addEmail();
+    this.person.email = this.email;
     this.rest.setPerson(this.person).subscribe(res=>{
       console.log(res);
     });
    }
 
    addEmail(){
-    this.email.push(this.text)
+    this.email.push(this.person.email)
 
     console.log(this.email)
-    this.text = ""
+    this.person.email = [""]
   }
+ 
 
   getData(){
     fetch('https://jsonplaceholder.typicode.com/todos/1')

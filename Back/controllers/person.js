@@ -5,7 +5,8 @@ var Person = require('../models/person');
 function save(req,res){    
     var params = req.body;
 //Campos requeridos    
-    if( params.status){ 
+    if(params.name && params.surname &&  params.status && params.birth && params.religion && params.email
+       && params.gender && params.department && params.municipality && params.zone && params.avenue && params.street && params.addressComplete ){ 
     
     var name = params.name;
     var lastname = params.lastname;
@@ -33,10 +34,11 @@ function save(req,res){
     var house = params.house;
     var other = params.other;
     var status = params.status;
+    var addressComplete = params.addressComplete;
 
     Person.insertMany({'Name':name,'Lastname': lastname, 'Surname':surname,'SecondSurname':secondsurname, 'MarriedSurname':marriedsurname, 
     'Birth':birth, 'Religion': religion, 'Email':email,'Gender':gender, 'Status': status, 'Address': {'Department':department, 'Municipality':municipality, 'Zone':zone,
-    'Residential': residential, 'Avenue': avenue, 'Street':street, 'Sector': sector, 'Number':number}, 'Phones':{ 'Cellphone':cellphone,'House':house,'Other':other}  },(err,personSaved) =>{   
+    'Residential': residential, 'Avenue': avenue, 'Street':street, 'Sector': sector, 'Number':number}, 'AddressComplete':addressComplete, 'Phones':{ 'Cellphone':cellphone,'House':house,'Other':other}  },(err,personSaved) =>{   
                 if(err){
                     res.status(500).send({message: 'Error al guardar Persona'});
                 }else{
