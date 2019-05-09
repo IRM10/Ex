@@ -8,21 +8,36 @@ import { RestService } from 'src/app/services/rest.service';
   styleUrls: ['./units.component.scss']
 })
 export class UnitsComponent implements OnInit {
-
-  units: Units;
+  units = []
+  unitss: Units;
   constructor(public rest: RestService){
-    this.rest.setUnit(this.units);
-    this.units = new Units('')
+    this.rest.setUnit(this.unitss);
+    this.unitss = new Units('')
   }
 
   ngOnInit() {
     this.getData();
+    this.getUnits();
   }
 
   onSubmit(){
-    this.rest.setUnit(this.units).subscribe(res=>{
+    this.rest.setUnit(this.unitss).subscribe(res=>{
       console.log(res);
+      this.limpiar();
+      this.getUnits();
     });
+  }
+
+  getUnits(){
+    this.rest.getUnidades().subscribe(res =>{
+      console.log(res);
+      this.units = res.units
+    })
+  }
+
+
+  limpiar(){
+    this.unitss.name = '';
   }
 
   getData(){

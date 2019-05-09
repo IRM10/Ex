@@ -11,6 +11,7 @@ import { FamiliesComponent } from './components/families/families.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { CareersComponent } from './components/careers/careers.component';
 import { UnitsComponent } from './components/units/units.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { UnitsComponent } from './components/units/units.component';
     FamiliesComponent,
     CoursesComponent,
     CareersComponent,
-    UnitsComponent
+    UnitsComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

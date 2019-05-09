@@ -1,6 +1,6 @@
 export class Course{
   constructor(
-    public Code: String,
-    public Name: String
+    public code: String,
+    public name: String
   ){}
  }

@@ -1,33 +1,54 @@
-import { Component, OnInit } from '@angular/core';
-import { Course } from 'src/app/models/courses/courses'
-import { RestService } from '../../services/rest.service'
+	
+		
+		import { Component, OnInit } from '@angular/core';
+    import { Course } from 'src/app/models/courses/courses'
+    import { RestService } from '../../services/rest.service'
+    
+    @Component({
+      selector: 'app-courses',
+      templateUrl: './courses.component.html',
+      styleUrls: ['./courses.component.scss']
+    })
+    export class CoursesComponent implements OnInit {
+    
+      course: Course;
+      courses= [];
+      constructor(public rest:RestService) {
+        this.rest.setCourse(this.course);
+        this.course = new Course('','')
+       }
+    
+      ngOnInit() {
+        this.getData();
+        this.getCursos();
+      }
+    
+      onSubmit(){
+        this.rest.setCourse(this.course).subscribe(res=>{
+          console.log(res);
+          this.limpiar();
+          this.getCursos();
+        });
+      }
 
-@Component({
-  selector: 'app-courses',
-  templateUrl: './courses.component.html',
-  styleUrls: ['./courses.component.scss']
-})
-export class CoursesComponent implements OnInit {
+      getCursos(){
+        this.rest.getCursos().subscribe(res =>{
+          console.log(res);
+          this.courses = res.courses
+        })
+      }
 
-  course: Course;
-  constructor(public rest:RestService) {
-    this.rest.setCourse(this.course);
-    this.course = new Course('','')
-   }
 
-  ngOnInit() {
-    this.getData();
-  }
+      limpiar(){
+        this.course.code = '';
+        this.course.name = '';
+      }
 
-  onSubmit(){
-    this.rest.setCourse(this.course).subscribe(res=>{
-      console.log(res);
-    });
-  }
-
-  getData(){
-    fetch('https://jsonplaceholder.typicode.com/todos/1')
-    .then(response => response.json())
-    .then(json => console.log(json))     
-  }
-}
+      
+    
+      getData(){
+        fetch('https://jsonplaceholder.typicode.com/todos/1')
+        .then(response => response.json())
+        .then(json => console.log(json))     
+      }
+    }

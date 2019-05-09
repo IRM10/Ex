@@ -1,7 +1,7 @@
 export class Career{
   constructor(
-    public Code: String,
-    public Name: String,
-    public Description: String
+    public code: String,
+    public name: String,
+    public description: String
   ){}
 }

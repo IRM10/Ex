@@ -62,6 +62,21 @@ mensaje = 'Guardar person ejecutado';
 
   }
 
+  getCursos(): Observable<any>{
+    return this.http.get(this.endpoint + '/mostrar-curso',this.httpOptions).pipe(map(this.extractData));
+
+  }
+
+  getUnidades(): Observable<any>{
+    return this.http.get(this.endpoint + '/mostrar-unidadAcademica',this.httpOptions).pipe(map(this.extractData));
+
+  }
+
+  getCarreras(): Observable<any>{
+    return this.http.get(this.endpoint + '/mostrar-carreraEducativa',this.httpOptions).pipe(map(this.extractData));
+
+  }
+
   searchPerson(search){
     return this.http.post(this.endpoint + '/buscar-persona', {search}, this.httpOptions).pipe(map(this.extractData));
   }

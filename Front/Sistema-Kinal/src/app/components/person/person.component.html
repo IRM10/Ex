@@ -7,34 +7,20 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/datepicker/moment.min.js"></script>
-    <script src="vendor/datepicker/daterangepicker.js"></script>
-    <script src="js/global.js"></script>
+
    
 
     </header>
+
+    
+        <app-nav-bar></app-nav-bar>
+<br>
+<br>
+<br>
   <body>
     
   
-      <nav class="navbar navbar-inverse">
-          <div class="container-fluid">
-          
-        
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-                <li ><a href="/inicio">Inicio <span class="sr-only">(current)</span></a></li>
-                <li class="active"><a href="/person">Persona</a></li>
-                <li ><a href="/families">Familia</a></li>
-                <li ><a href="/units">Unidades Academicas</a></li>
-                <li ><a href="/career">Carreras Educacionales</a></li>
-                <li ><a href="/course">Cursos</a></li>
-               
-              </ul>
-              
-            </div><!-- /.navbar-collapse -->
-          </div><!-- /.container-fluid -->
-        </nav>
+
   <br>
   <br>
   
@@ -101,7 +87,7 @@
                                   </div>
                               </div>
                           </div>
-                          <form>
+                       
                           <div class="form-row">
                               <div class="name">Email</div>
                               <div class="value">
@@ -121,7 +107,7 @@
                           </div>
                           </div>
                         
-                        </form>
+                        
                           <div class="form-row m-b-55">
                               <div class="name">Género<br> Estado Civil</div>
                               <div class="value">
@@ -249,16 +235,16 @@
                           <div class="form-row m-b-55">
                             <div class="name"></div>
                             <div class="value">
-                                <div class="row row-space">
-                                    <div class="col-2">
+                                
+                                
                                         <div class="input-group-desc">
                                             <input class="input--style-5" type="text"   [(ngModel)]="person.addressComplete" required name="addressComplete" >
                                             <label class="label--desc">Otros</label>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                        
+                                
                           
                           <div class="form-row m-b-55">
                               <div class="name">Telefonos</div>
@@ -272,7 +258,7 @@
                                       </div>
                                       <div class="col-9">
                                           <div class="input-group-desc">
-                                              <input class="input--style-5"  maxlength="8" minlength="8" type="text" [(ngModel)]="person.house" name="house">
+                                              <input class="input--style-5"   type="number" [(ngModel)]="person.house" name="house">
                                               <label class="label--desc">Número de Casa</label>
                                           </div>
                                       </div>
@@ -286,20 +272,37 @@
                                   <div class="row row-refine">
                                       <div class="col-3">
                                           <div class="input-group-desc">
-                                              <input class="input--style-5" type="text" name="area_code">
+                                              <input class="input--style-5" type="number" name="area_code">
                                               <label class="label--desc">Código</label>
                                           </div>
                                       </div>
                                       <div class="col-9">
                                           <div class="input-group-desc">
-                                              <input class="input--style-5"  maxlength="8" minlength="8" type="text" [(ngModel)]="person.cellphone" name="cellphone">
+                                              <input class="input--style-5"  maxlength="8" minlength="8" type="number" [(ngModel)]="person.cellphone" name="cellphone">
                                               <label class="label--desc">Número de Celular</label>
                                           </div>
                                       </div>
                                   </div>
                               </div>
                           </div>
-
+                          <div class="form-row">
+                            <div class="name">Otros</div>
+                            <div class="value">
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                <div class="input-group-desc">
+                                    <input class="input--style-5" type="number"  maxlength="8" minlength="8"[(ngModel)]="person.other" name="other"  [ngModelOptions]="{standalone:true}"  > 
+                                    <br>
+                                </div>
+                                
+                                
+                                  </div>
+                                  <div class="col-2">
+<button type="button" class="btnbtn--red"   (click)="addTelefonos()">+</button>
+                                    </div>
+                            </div>
+                        </div>
+                        </div>
                         
                           <div>
                               <button class="btn btn--radius-2 btn--red" type="submit">Enviar Formulario</button>
@@ -323,6 +326,8 @@
   
   
   
+ 
+
   
   
-  
+

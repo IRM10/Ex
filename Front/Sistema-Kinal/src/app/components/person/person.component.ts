@@ -14,13 +14,14 @@ export class PersonComponent implements OnInit {
   
   person: Person;
   constructor(public rest: RestService) { 
-    this.text = ""
+
 
     this.rest.setPerson(this.person);
-    this.person = new Person('','','','','','','',[''], '', null,'','','','','','','', null,null, null , null, null, '');
+    this.person = new Person('','','','','','','',[''],'', [''], null,'','','','','','','', null,null, null , null, null, '');
   }
   public email = [];
-  public text: String;
+  public telefonos = [];
+
 
   ngOnInit() {
     this.getData();
@@ -40,6 +41,13 @@ export class PersonComponent implements OnInit {
 
     console.log(this.email)
     this.person.email = [""]
+  }
+
+  addTelefonos(){
+    this.telefonos.push(this.person.other)
+
+    console.log(this.telefonos)
+    this.person.other = [null]
   }
  
 

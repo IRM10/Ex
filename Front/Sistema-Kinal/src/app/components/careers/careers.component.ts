@@ -8,7 +8,7 @@ import { RestService } from '../../services/rest.service'
   styleUrls: ['./careers.component.scss']
 })
 export class CareersComponent implements OnInit {
-
+careers = [];
   career: Career;
   constructor(public rest:RestService) {
     this.rest.setCareer(this.career);
@@ -17,13 +17,31 @@ export class CareersComponent implements OnInit {
 
   ngOnInit() {
     this.getData();
+    this.getCarer();
   }
 
    onSubmit(){
     this.rest.setCareer(this.career).subscribe(res=>{
       console.log(res);
+      this.limpiar()
+      this.getCarer();
     });
   }
+
+  getCarer(){
+    this.rest.getCarreras().subscribe(res =>{
+      console.log(res);
+      this.careers = res.careers
+    })
+  }
+
+
+  limpiar(){
+    this.career.code = '';
+    this.career.name = '';
+    this.career.description = '';
+  }
+
 
   getData(){
   fetch('https://jsonplaceholder.typicode.com/todos/1')
