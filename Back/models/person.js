@@ -11,7 +11,7 @@ var personSchema = Schema ({
     MarriedSurname: String,
     Birth: String,
     Religion: String,
-    Email: String,
+    Email: [String],
     Gender: String,
     Address: Object,
     Department: String,

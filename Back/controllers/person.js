@@ -5,9 +5,7 @@ var Person = require('../models/person');
 function save(req,res){    
     var params = req.body;
 //Campos requeridos    
-    if(params.name && params.lastname && params.surname && params.secondsurname  && params.birth && params.religion
-        && params.email && params.gender && params.department && params.municipality && params.zone && params.residential 
-        && params.avenue && params.street && params.sector && params.number && params.cellphone && params.house && params.status){ 
+    if( params.status){ 
     
     var name = params.name;
     var lastname = params.lastname;

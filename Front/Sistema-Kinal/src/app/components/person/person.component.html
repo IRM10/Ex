@@ -108,13 +108,18 @@
                                   <div class="row row-space">
                                       <div class="col-2">
                                   <div class="input-group-desc">
-                                      <input class="input--style-5" type="email" [(ngModel)]="text" name="email"> 
-                                      
+                                      <input class="input--style-5" type="email" [(ngModel)]="person.email" name="email"   > 
+                                      <br>
                                   </div>
+                                  <div class="input-group-desc"  *ngFor="let animal of email; let i of index">
+                                      <br>
+                                        <input class="input--style-5" type="email"  [(ngModel)]="person.email" name="email" [ngModelOptions]="{standalone: true}" > 
+                                        
+                                    </div>
                                   
                                     </div>
                                     <div class="col-2">
-<button type="button" class="btnbtn--red"  (click)="addEmail()">+</button>
+<button type="button" class="btnbtn--red" name="emails"  (click)="addEmail()">+</button>
                                       </div>
                               </div>
                           </div>

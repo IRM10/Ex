@@ -7,7 +7,7 @@ export class Person {
     public MarriedSurname: string,
     public Birth: string,
     public Religion: string,
-    public Email: string,
+    public Email: string[],
     public Gender: string,
     public Address: object,
     public Department: string,
