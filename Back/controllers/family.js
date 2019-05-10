@@ -8,8 +8,8 @@ function saveFamily (req,res){
   var params = req.body;
 
   
-  if(params.apellidos){
-      family.Apellidos = params.apellidos;
+  if(params.surnames){
+      family.Surnames = params.surnames;
       family.Son = null;
       family.Father = null;
       family.Mother = null;
