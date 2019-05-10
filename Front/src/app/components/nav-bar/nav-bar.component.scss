@@ -79,7 +79,7 @@ nav {
   position: absolute;
   top: 0;
   left: 0;
-  background-image: url(https://images.unsplash.com/photo-1476648411502-c46db3bd5357?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);
+  background-image: url(https://img.freepik.com/foto-gratis/modelo-textura-madera-blancos-fondo_64749-1631.jpg);
   padding: 1rem 0rem 0rem;
   width: 100vw;
   min-height: 100vh;
@@ -124,9 +124,30 @@ nav {
     color: $nav-item-bg-clr;
     background-color: $nav-item-bg-clr;
     border-radius: 2px;
+    color: #e0dfdc;
+    background-color: #333;
+    letter-spacing: .1em;
+    text-shadow: 
+      0 -1px 0 #fff, 
+      0 1px 0 #000000, 
+      0 2px 0 #2c2c2c, 
+      0 3px 0 #2a2a2a, 
+      0 4px 0 #282828, 
+      0 5px 0 #262626, 
+      0 6px 0 #242424, 
+      0 7px 0 #222, 
+      0 8px 0 #202020, 
+      0 9px 0 #1e1e1e, 
+      0 10px 0 #1c1c1c, 
+      0 11px 0 #1a1a1a, 
+      0 12px 0 #181818, 
+      0 13px 0 #161616, 
+      0 14px 0 #141414, 
+      0 15px 0 #121212, 
+      0 22px 30px rgba(0, 0, 0, 0.9);
     
     @media (min-width: 450px) {
-      font-size: 1.75rem;
+      font-size: 2.95rem;
     }
   }
 }
