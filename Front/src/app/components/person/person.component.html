@@ -39,7 +39,7 @@
                                       <div class="col-2">
                                           <div class="input-group-desc">
                                               <input class="input--style-5" type="text" style="text-transform: uppercase" required [(ngModel)]="person.name" required name="name" >
-                                              <label class="label--desc">Primer Nombre</label>
+                                              <label class="label--desc">Primer Nombre<strong> (*)</strong></label>
                                           </div>
                                       </div>
                                       <div class="col-2">
@@ -58,7 +58,7 @@
                                       <div class="col-2">
                                           <div class="input-group-desc">
                                               <input class="input--style-5" type="text" style="text-transform: uppercase" required [(ngModel)]="person.surname" required name="surname" >
-                                              <label class="label--desc">Primer Apellido</label>
+                                              <label class="label--desc">Primer Apellido<strong> (*)</strong></label>
                                           </div>
                                       </div>
                                       <div class="col-2">
@@ -77,7 +77,7 @@
                               <div class="value">
                                   <div class="input-group">
                                       <input class="input--style-5" type="date"[(ngModel)]="person.birth" required name="birth">
-                                      <label class="label--desc">Fecha de Nacimiento</label>
+                                      <label class="label--desc">Fecha de Nacimiento<strong> (*)</strong></label>
                                       <br>
                                   </div>
                               </div>
@@ -89,7 +89,7 @@
                               <div class="value">
                                   <div class="input-group-desc">
                                     <select class="input--style-5" name="status" [(ngModel)]="person.religion">
-                                        <option disabled="disabled" selected="selected">Elige tu religión:</option>
+                                        <option disabled="disabled" selected="selected">Elige la religión que profesas (si la tienes):</option>
                                         <option value="CATÓLICO(A)">Católico(a)</option>
                                         <option value="EVANGÉLICO(A)">Evangélico(a)</option>
                                         <option value="BUDISTA">Budista</option>
@@ -126,10 +126,9 @@
                                       <br>
                                   </div>
                                   <br>
-                                  
                                     </div>
                                     <div class="col-2">
-<button type="button" class="btnbtn--red"   (click)="addEmail()">+</button>
+                                        <button type="button" class="btnbtn--red"   (click)="addEmail()">+</button>
                                       </div>
                               </div>
                           </div>
@@ -144,24 +143,25 @@
                                           <div class="input-group-desc">
                                               <div class="rs-select2 js-select-simple select--no-search">
                                                   <select class="input--style-5" name="gender" [(ngModel)]="person.gender">
-                                                      <option disabled="disabled"  selected="selected">Selecciona una Opcion</option>
-                                                      <option value="Masculino" >Masculino</option>
-                                                      <option value="Femenino" >Femenino</option>
+                                                      <option disabled="disabled"  selected="selected">Elige un Género:</option>
+                                                      <option value="MASCULINO" >Masculino</option>
+                                                      <option value="FEMENINO" >Femenino</option>
                                                      
                                                   </select>
                                                   <div class="select-dropdown"></div>
-                                              <label class="label--desc">Género</label>
+                                              <label class="label--desc">Género<strong> (*)</strong></label>
                                           </div>
                                       </div>
                                     </div>
+                                    
                                       <div class="col-2">
                                           <div class="input-group-desc">
                                               <select class="input--style-5" name="status" [(ngModel)]="person.status">
-                                                  <option disabled="disabled"  selected="selected">Selecciona una Opcion</option>
-                                                  <option value="Soltero(a)" >Soltero(a)</option>
-                                                  <option value="Casado(a)" >Casado(a)</option>
+                                                  <option disabled="disabled"  selected="selected">Elige un estado civil:</option>
+                                                  <option value="SOLTERO(A)" >Soltero(a)</option>
+                                                  <option value="CASADO(A)" >Casado(a)</option>
                                               </select>
-                                              <label class="label--desc">Estado Civil</label>
+                                              <label class="label--desc">Estado Civil<strong> (*)</strong></label>
                                           </div>
                                       </div>
                                   
@@ -184,10 +184,33 @@
                                   <div class="row row-space">
                                       <div class="col-2">
                                           <div class="input-group-desc">
-                                              <input class="input--style-5" type="text"   [(ngModel)]="person.department" required name="department" >
+                                                <select class="input--style-5" heigth="2px" name="status" [(ngModel)]="person.department">
+                                                    <option disabled="disabled" selected="selected">Elige un departamento:</option>
+                                                    <option value="ALTA VERAPAZ">Alta Verapaz</option>
+                                                    <option value="BAJA VERAPAZ">Baja Verapaz</option>
+                                                    <option value="CHIMALTENANGO">Chimaltenango</option>
+                                                    <option value="PETÉN">Petén</option>
+                                                    <option value="EL PROGRESO">El Progreso</option>
+                                                    <option value="QUICHÉ">Quiché</option>
+                                                    <option value="ESCUINTLA">Escuintla</option>
+                                                    <option value="GUATEMALA">Guatemala</option>
+                                                    <option value="IZABAL">Izabal</option>
+                                                    <option value="JALAPA">Jalapa</option>
+                                                    <option value="JUTIAPA">Jutiapa</option>
+                                                    <option value="QUETZALTENANGO">Quetzaltenango</option>
+                                                    <option value="RETALHULEU">Retalhuleu</option>
+                                                    <option value="SACATEPÉQUEZ">Sacatepéquez</option>
+                                                    <option value="SAN MARCOS">San Marcos</option>
+                                                    <option value="SANTA ROSA">Santa Rosa</option>
+                                                    <option value="SOLOLÁ">Sololá</option>
+                                                    <option value="SUCHITEPÉQUEZ">Suchitepéquez</option>
+                                                    <option value="TOTONICAPÁN">Totonicapán</option>
+                                                    <option value="ZACAPA">Zacapa</option>
+                                                </select>
                                               <label class="label--desc">Departamento</label>
                                           </div>
                                       </div>
+                                      
                                       <div class="col-2">
                                           <div class="input-group-desc">
                                               <input class="input--style-5" type="text" [(ngModel)]="person.municipality" name="municipality">
@@ -204,7 +227,32 @@
                                   <div class="row row-space">
                                       <div class="col-2">
                                           <div class="input-group-desc">
-                                              <input class="input--style-5" type="number"   [(ngModel)]="person.zone" required name="zone" >
+                                                <select class="input--style-5" name="status" [(ngModel)]="person.zone">
+                                                        <option disabled="disabled"  selected="selected">Elige una Zona:</option>
+                                                        <option value="ZONA 01" >Zona 01</option>
+                                                        <option value="ZONA 02" >Zona 02</option>
+                                                        <option value="ZONA 03" >Zona 03</option>
+                                                        <option value="ZONA 04" >Zona 04</option>
+                                                        <option value="ZONA 05" >Zona 05</option>
+                                                        <option value="ZONA 06" >Zona 06</option>
+                                                        <option value="ZONA 07" >Zona 07</option>
+                                                        <option value="ZONA 08" >Zona 08</option>
+                                                        <option value="ZONA 09" >Zona 09</option>
+                                                        <option value="ZONA 10" >Zona 10</option>
+                                                        <option value="ZONA 11" >Zona 11</option>
+                                                        <option value="ZONA 12" >Zona 12</option>
+                                                        <option value="ZONA 13" >Zona 13</option>
+                                                        <option value="ZONA 14" >Zona 14</option>
+                                                        <option value="ZONA 15" >Zona 15</option>
+                                                        <option value="ZONA 16" >Zona 16</option>
+                                                        <option value="ZONA 17" >Zona 17</option>
+                                                        <option value="ZONA 18" >Zona 18</option>
+                                                        <option value="ZONA 19" >Zona 19</option>
+                                                        <option value="ZONA 20" >Zona 20</option>
+                                                        <option value="ZONA 21" >Zona 21</option>
+                                                        <option value="ZONA 22" >Zona 22</option>
+                                                        <option value="ZONA 23" >Zona 23</option>
+                                                    </select>
                                               <label class="label--desc">Zona</label>
                                           </div>
                                       </div>
@@ -300,29 +348,41 @@
                                   </div>
                               </div>
                           </div>
+
                           <div class="form-row">
-                            <div class="name">Otros</div>
+                                <div class="name">Otro(s)</div>
                                 <div class="value">
                                     <div class="row row-space">
                                         <div class="col-2">
-                                                <input class="input--style-5" type="number" maxlength="8" minlength="8"[(ngModel)]="person.other" name="other"  [ngModelOptions]="{standalone:true}"  > 
-                                            <br>
-                                        </div>
-                                            <div class="col-2">
-                                                <button type="button" class="btnbtn--red"   (click)="addTelefonos()">+</button>
-                                            </div>
+                                    <div class="input-group-desc">
+                                        <input class="input--style-5" type="email" [(ngModel)]="person.other" name="other"  [ngModelOptions]="{standalone:true}"  > 
+                                        <label class="label--desc">Otro número telefónico</label>
+                                        <br>
                                     </div>
+                                    <br>
+                                      </div>
+                                      <div class="col-2">
+                                          <button type="button" class="btnbtn--red"   (click)="addEmail()">+</button>
+                                        </div>
                                 </div>
-                        </div>
+                            </div>
+                            </div>
+
                           <div>
                               <button class="btn btn--radius-2 btn--red" type="submit">Enviar Formulario</button>
                           </div>
                       </form>
+                      <strong> (*)</strong> Parámetros obligatorios
                   </div>
+                  
               </div>
           </div>
+
       </div>
+
   </body>
+
+ 
   
    
     <footer>
