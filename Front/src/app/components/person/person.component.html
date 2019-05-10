@@ -38,13 +38,13 @@
                                   <div class="row row-space">
                                       <div class="col-2">
                                           <div class="input-group-desc">
-                                              <input class="input--style-5" type="text"  [(ngModel)]="person.name" required name="name" >
+                                              <input class="input--style-5" type="text" style="text-transform: uppercase" required [(ngModel)]="person.name" required name="name" >
                                               <label class="label--desc">Primer Nombre</label>
                                           </div>
                                       </div>
                                       <div class="col-2">
                                           <div class="input-group-desc">
-                                              <input class="input--style-5" type="text" [(ngModel)]="person.lastname" name="lastname">
+                                              <input class="input--style-5" type="text" style="text-transform: uppercase" [(ngModel)]="person.lastname" name="lastname">
                                               <label class="label--desc">Segundo Nombre</label>
                                           </div>
                                       </div>
@@ -57,13 +57,13 @@
                                   <div class="row row-space">
                                       <div class="col-2">
                                           <div class="input-group-desc">
-                                              <input class="input--style-5" type="text"   [(ngModel)]="person.surname" required name="surname" >
+                                              <input class="input--style-5" type="text" style="text-transform: uppercase" required [(ngModel)]="person.surname" required name="surname" >
                                               <label class="label--desc">Primer Apellido</label>
                                           </div>
                                       </div>
                                       <div class="col-2">
                                           <div class="input-group-desc">
-                                              <input class="input--style-5" type="text" [(ngModel)]="person.secondsurname" name="secondsurname">
+                                              <input class="input--style-5" type="text" style="text-transform: uppercase" [(ngModel)]="person.secondsurname" name="secondsurname">
                                               <label class="label--desc">Segundo Apellido</label>
                                           </div>
                                       </div>
@@ -147,7 +147,7 @@
                               <div class="value"  >
                                   <div class="input-group"  >
                                      
-                                      <input  type="text" class="input--style-5"  [(ngModel)]="person.marriedsurname"  name="marriedsurname">
+                                      <input  type="text" class="input--style-5"  [(ngModel)]="person.marriedsurname" style="text-transform: uppercase"  name="marriedsurname">
                                   </div>
                               </div>
                           </div>
