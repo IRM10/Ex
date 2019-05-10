@@ -30,7 +30,7 @@ mensaje = 'Guardar person ejecutado';
 
   }
 
-  setPerson(person_guardar) {
+  setPerson(person_guardar): Observable<any> {
     console.log(this.mensaje)
     var params = JSON.stringify(person_guardar);
     return this.http.post(this.endpoint + '/guardar-persona', params, this.httpOptions).pipe(map(this.extractData));

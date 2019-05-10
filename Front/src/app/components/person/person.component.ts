@@ -35,14 +35,14 @@ export class PersonComponent implements OnInit {
     this.person.email = this.email;
     this.rest.setPerson(this.person).subscribe(res=>{
       console.log(res);
-      if(res = {message: "Ingrese todos los campos"}){
-        alert('Ingresa todos los campos requeridos');
+      if(res.message =='Ingrese todos los campos'){
+        this.toastr.error('Ingresa todos los campos requeridos');
       }
       if(this.person.name = ""){
-        alert('Por favor, llena todos los campos correctamente');
+        this.toastr.warning('Por favor, llena todos los campos correctamente');
       }
-      else{
-        alert('¡Registro almacenado correctamente!');
+      else if(res.Person){
+        this.toastr.success('¡Registro almacenado correctamente!');
       }
     });
    }
