@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Person } from 'src/app/models/person/person'
 import { RestService } from '../../services/rest.service'
 import { ToastrService } from 'ngx-toastr';
-
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -12,8 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 
 export class PersonComponent implements OnInit {
-
-  
+  public codigo: number;
   person: Person;
   constructor(public rest: RestService, private toastr: ToastrService) { 
 
@@ -30,19 +29,22 @@ export class PersonComponent implements OnInit {
   
   }
 
-  onSubmit(){
+  onSubmit(formularioRegistro: NgForm){
     this. addEmail();
     this.person.email = this.email;
+    console.log(this.person);
     this.rest.setPerson(this.person).subscribe(res=>{
       console.log(res);
       if(res.message =='Ingrese todos los campos'){
         this.toastr.error('Ingresa todos los campos requeridos');
       }
-      if(this.person.name = ""){
-        this.toastr.warning('Por favor, llena todos los campos correctamente');
-      }
       else if(res.Person){
         this.toastr.success('¡Registro almacenado correctamente!');
+        formularioRegistro.resetForm();
+        this.person.email = [''],
+        this.person.other = [null],
+        this.codigo = null
+        
       }
     });
    }

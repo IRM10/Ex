@@ -31,7 +31,7 @@
                       <h2 class="title">Registrar Persona</h2>
                   </div>
                   <div class="card-body">
-                      <form #formularioRegistro="ngForm" (ngSubmit)="onSubmit()">
+                      <form #formularioRegistro="ngForm" (ngSubmit)="onSubmit(formularioRegistro)">
                           <div class="form-row m-b-55">
                               <div class="name">Nombres</div>
                               <div class="value">
@@ -132,7 +132,6 @@
                                                   <option disabled="disabled"  selected="selected">Selecciona una Opcion</option>
                                                   <option value="Soltero(a)" >Soltero(a)</option>
                                                   <option value="Casado(a)" >Casado(a)</option>
-                                                  <option value="Viudo(a)" >Viudo(a)</option>
                                                  
                                               </select>
                                               <label class="label--desc">Estado Civil</label>
@@ -178,7 +177,7 @@
                                   <div class="row row-space">
                                       <div class="col-2">
                                           <div class="input-group-desc">
-                                              <input class="input--style-5" type="text"   [(ngModel)]="person.zone" required name="zone" >
+                                              <input class="input--style-5" type="number"   [(ngModel)]="person.zone" required name="zone" >
                                               <label class="label--desc">Zona</label>
                                           </div>
                                       </div>
@@ -204,7 +203,7 @@
                                       </div>
                                       <div class="col-2">
                                           <div class="input-group-desc">
-                                              <input class="input--style-5" type="text" [(ngModel)]="person.street" name="street">
+                                              <input class="input--style-5" type="number" [(ngModel)]="person.street" name="street">
                                               <label class="label--desc">Calle</label>
                                           </div>
                                       </div>
@@ -224,7 +223,7 @@
                                       </div>
                                       <div class="col-2">
                                           <div class="input-group-desc">
-                                              <input class="input--style-5" type="text" [(ngModel)]="person.number" name="number">
+                                              <input class="input--style-5" type="number" [(ngModel)]="person.number" name="number">
                                               <label class="label--desc">No. de Casa</label>
                                           </div>
                                       </div>
@@ -250,15 +249,9 @@
                               <div class="name">Telefonos</div>
                               <div class="value">
                                   <div class="row row-refine">
-                                      <div class="col-3">
-                                          <div class="input-group-desc">
-                                              <input class="input--style-5" type="text" name="area_code">
-                                              <label class="label--desc">Código</label>
-                                          </div>
-                                      </div>
                                       <div class="col-9">
                                           <div class="input-group-desc">
-                                              <input class="input--style-5"   type="number" [(ngModel)]="person.house" name="house">
+                                              <input class="input--style-5" type="number" [(ngModel)]="person.house" name="house">
                                               <label class="label--desc">Número de Casa</label>
                                           </div>
                                       </div>
@@ -272,7 +265,7 @@
                                   <div class="row row-refine">
                                       <div class="col-3">
                                           <div class="input-group-desc">
-                                              <input class="input--style-5" type="number" name="area_code">
+                                              <input class="input--style-5" type="number" [(ngModel)]="codigo" name="codigo">
                                               <label class="label--desc">Código</label>
                                           </div>
                                       </div>
