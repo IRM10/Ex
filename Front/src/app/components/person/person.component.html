@@ -244,8 +244,7 @@
                                     </div>
                                 </div>
                         
-                                
-                          
+
                           <div class="form-row m-b-55">
                               <div class="name">Telefonos</div>
                               <div class="value">
@@ -278,7 +277,7 @@
                                       </div>
                                       <div class="col-9">
                                           <div class="input-group-desc">
-                                              <input class="input--style-5"  maxlength="8" minlength="8" type="number" [(ngModel)]="person.cellphone" name="cellphone">
+                                              <input class="input--style-5" type="tel" maxlength="8" [(ngModel)]="person.cellphone" name="cellphone">
                                               <label class="label--desc">Número de Celular</label>
                                           </div>
                                       </div>
@@ -291,14 +290,14 @@
                                 <div class="row row-space">
                                     <div class="col-2">
                                 <div class="input-group-desc">
-                                    <input class="input--style-5" type="number"  maxlength="8" minlength="8"[(ngModel)]="person.other" name="other"  [ngModelOptions]="{standalone:true}"  > 
+                                    <input class="input--style-5" type="number" maxlength="8" minlength="8"[(ngModel)]="person.other" name="other"  [ngModelOptions]="{standalone:true}"  > 
                                     <br>
                                 </div>
                                 
                                 
                                   </div>
                                   <div class="col-2">
-<button type="button" class="btnbtn--red"   (click)="addTelefonos()">+</button>
+                                        <button type="button" class="btnbtn--red"   (click)="addTelefonos()">+</button>
                                     </div>
                             </div>
                         </div>
