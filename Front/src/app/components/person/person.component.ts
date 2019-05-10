@@ -2,7 +2,14 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Person } from 'src/app/models/person/person'
 import { RestService } from '../../services/rest.service'
 import { ToastrService } from 'ngx-toastr';
+<<<<<<< HEAD
 import { NgForm } from '@angular/forms';
+=======
+import { validateConfig } from '@angular/router/src/config';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MustMatch } from '../../../../helpers/must-match.validator';
+
+>>>>>>> 7114b3cf05ecd07b84c9f3bcaafbeffef506b1b5
 
 
 @Component({
@@ -12,9 +19,16 @@ import { NgForm } from '@angular/forms';
 })
 
 export class PersonComponent implements OnInit {
+<<<<<<< HEAD
   public codigo: number;
+=======
+  registerForm: FormGroup;
+  submitted = false;
+  
+>>>>>>> 7114b3cf05ecd07b84c9f3bcaafbeffef506b1b5
   person: Person;
-  constructor(public rest: RestService, private toastr: ToastrService) { 
+  constructor(public rest: RestService, private toastr: ToastrService,
+    private formBuilder: FormBuilder) { 
 
 
     this.rest.setPerson(this.person);
@@ -29,7 +43,12 @@ export class PersonComponent implements OnInit {
   
   }
 
+<<<<<<< HEAD
   onSubmit(formularioRegistro: NgForm){
+=======
+  onSubmit(){
+
+>>>>>>> 7114b3cf05ecd07b84c9f3bcaafbeffef506b1b5
     this. addEmail();
     this.person.email = this.email;
     console.log(this.person);
@@ -46,6 +65,19 @@ export class PersonComponent implements OnInit {
         this.codigo = null
         
       }
+
+      {
+        this.registerForm = this.formBuilder.group({
+            firstName: ['', Validators.required],
+            lastName: ['', Validators.required],
+            email: ['', [Validators.required, Validators.email]],
+            password: ['', [Validators.required, Validators.minLength(6)]],
+            confirmPassword: ['', Validators.required]
+        }, {
+            validator: MustMatch('password', 'confirmPassword')
+        });
+    }
+
     });
    }
 
