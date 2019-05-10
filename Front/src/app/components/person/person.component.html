@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<header>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+   
+
+    </header>
+
+    
+        <app-nav-bar></app-nav-bar>
+<br>
+<br>
+<br>
+  <body>
+    
+  
+
+  <br>
+  <br>
+  
+      <div >
+          <div class="wrapper wrapper--w790">
+              <div class="card card-5">
+                  <div class="card-heading">
+                      <h2 class="title">Registrar Persona</h2>
+                  </div>
+                  <div class="card-body">
+                      <form #formularioRegistro="ngForm" (ngSubmit)="onSubmit()">
+                          <div class="form-row m-b-55">
+                              <div class="name">Nombres</div>
+                              <div class="value">
+                                  <div class="row row-space">
+                                      <div class="col-2">
+                                          <div class="input-group-desc">
+                                              <input class="input--style-5" type="text" style="text-transform: uppercase" required [(ngModel)]="person.name" required name="name" >
+                                              <label class="label--desc">Primer Nombre</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-2">
+                                          <div class="input-group-desc">
+                                              <input class="input--style-5" type="text" style="text-transform: uppercase" [(ngModel)]="person.lastname" name="lastname">
+                                              <label class="label--desc">Segundo Nombre</label>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="form-row m-b-55">
+                              <div class="name">Apellidos</div>
+                              <div class="value">
+                                  <div class="row row-space">
+                                      <div class="col-2">
+                                          <div class="input-group-desc">
+                                              <input class="input--style-5" type="text" style="text-transform: uppercase" required [(ngModel)]="person.surname" required name="surname" >
+                                              <label class="label--desc">Primer Apellido</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-2">
+                                          <div class="input-group-desc">
+                                              <input class="input--style-5" type="text" style="text-transform: uppercase" [(ngModel)]="person.secondsurname" name="secondsurname">
+                                              <label class="label--desc">Segundo Apellido</label>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          
+                          <div class="form-row">
+                              <div class="name">Fecha de Nacimiento</div>
+                              <div class="value">
+                                  <div class="input-group">
+                                      <input class="input--style-5" type="date"[(ngModel)]="person.birth" required name="birth">
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="form-row">
+                              <div class="name">Religion</div>
+                              <div class="value">
+                                  <div class="input-group-desc">
+                                      <input class="input--style-5" type="text" [(ngModel)]="person.religion" name="religion">
+                                  </div>
+                              </div>
+                          </div>
+                       
+                          <div class="form-row">
+                              <div class="name">Email</div>
+                              <div class="value">
+                                  <div class="row row-space">
+                                      <div class="col-2">
+                                  <div class="input-group-desc">
+                                      <input class="input--style-5" type="email" [(ngModel)]="person.email" name="email"  [ngModelOptions]="{standalone:true}"  > 
+                                      <br>
+                                  </div>
+                                  
+                                  
+                                    </div>
+                                    <div class="col-2">
+<button type="button" class="btnbtn--red"   (click)="addEmail()">+</button>
+                                      </div>
+                              </div>
+                          </div>
+                          </div>
+                        
+                        
+                          <div class="form-row m-b-55">
+                              <div class="name">Género<br> Estado Civil</div>
+                              <div class="value">
+                                  <div class="row row-space">
+                                      <div class="col-2">
+                                          <div class="input-group-desc">
+                                              <div class="rs-select2 js-select-simple select--no-search">
+                                                  <select class="input--style-5" name="gender" [(ngModel)]="person.gender">
+                                                      <option disabled="disabled"  selected="selected">Selecciona una Opcion</option>
+                                                      <option value="Masculino" >Masculino</option>
+                                                      <option value="Femenino" >Femenino</option>
+                                                     
+                                                  </select>
+                                                  <div class="select-dropdown"></div>
+                                              <label class="label--desc">Género</label>
+                                          </div>
+                                      </div>
+                                    </div>
+                                      <div class="col-2">
+                                          <div class="input-group-desc">
+                                              <select class="input--style-5" name="status" [(ngModel)]="person.status">
+                                                  <option disabled="disabled"  selected="selected">Selecciona una Opcion</option>
+                                                  <option value="Soltero(a)" >Soltero(a)</option>
+                                                  <option value="Casado(a)" >Casado(a)</option>
+                                                  <option value="Viudo(a)" >Viudo(a)</option>
+                                                 
+                                              </select>
+                                              <label class="label--desc">Estado Civil</label>
+                                          </div>
+                                      </div>
+                                  
+                              </div>
+                          </div>
+                          </div>
+                          <div  class="form-row" *ngIf = "person.gender == 'Femenino' && person.status == 'Casado(a)'">
+                              <div class="name" >Apellido Casada</div>
+                              <div class="value"  >
+                                  <div class="input-group"  >
+                                     
+                                      <input  type="text" class="input--style-5"  [(ngModel)]="person.marriedsurname" style="text-transform: uppercase"  name="marriedsurname">
+                                  </div>
+                              </div>
+                          </div>
+                          
+                          <div class="form-row m-b-55">
+                              <div class="name">Direccion</div>
+                              <div class="value">
+                                  <div class="row row-space">
+                                      <div class="col-2">
+                                          <div class="input-group-desc">
+                                              <input class="input--style-5" type="text"   [(ngModel)]="person.department" required name="department" >
+                                              <label class="label--desc">Departamento</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-2">
+                                          <div class="input-group-desc">
+                                              <input class="input--style-5" type="text" [(ngModel)]="person.municipality" name="municipality">
+                                              <label class="label--desc">Municipalidad</label>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="form-row m-b-55">
+                              <div class="name"></div>
+                              <div class="value">
+                                  <div class="row row-space">
+                                      <div class="col-2">
+                                          <div class="input-group-desc">
+                                              <input class="input--style-5" type="text"   [(ngModel)]="person.zone" required name="zone" >
+                                              <label class="label--desc">Zona</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-2">
+                                          <div class="input-group-desc">
+                                              <input class="input--style-5" type="text" [(ngModel)]="person.residential" name="residential">
+                                              <label class="label--desc">Residencial</label>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="form-row m-b-55">
+                              <div class="name"></div>
+                              <div class="value">
+                                  <div class="row row-space">
+                                      <div class="col-2">
+                                          <div class="input-group-desc">
+                                              <input class="input--style-5" type="text"   [(ngModel)]="person.avenue" required name="avenue" >
+                                              <label class="label--desc">Avenida</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-2">
+                                          <div class="input-group-desc">
+                                              <input class="input--style-5" type="text" [(ngModel)]="person.street" name="street">
+                                              <label class="label--desc">Calle</label>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="form-row m-b-55">
+                              <div class="name"></div>
+                              <div class="value">
+                                  <div class="row row-space">
+                                      <div class="col-2">
+                                          <div class="input-group-desc">
+                                              <input class="input--style-5" type="text"   [(ngModel)]="person.sector" required name="sector" >
+                                              <label class="label--desc">Sector</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-2">
+                                          <div class="input-group-desc">
+                                              <input class="input--style-5" type="text" [(ngModel)]="person.number" name="number">
+                                              <label class="label--desc">No. de Casa</label>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          
+                          <div class="form-row m-b-55">
+                            <div class="name"></div>
+                            <div class="value">
+                                
+                                
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text"   [(ngModel)]="person.addressComplete" required name="addressComplete" >
+                                            <label class="label--desc">Otros</label>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                
+                          
+                          <div class="form-row m-b-55">
+                              <div class="name">Telefonos</div>
+                              <div class="value">
+                                  <div class="row row-refine">
+                                      <div class="col-3">
+                                          <div class="input-group-desc">
+                                              <input class="input--style-5" type="text" name="area_code">
+                                              <label class="label--desc">Código</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-9">
+                                          <div class="input-group-desc">
+                                              <input class="input--style-5"   type="number" [(ngModel)]="person.house" name="house">
+                                              <label class="label--desc">Número de Casa</label>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="form-row m-b-55">
+                              <div class="name"></div>
+                              <div class="value">
+                                  <div class="row row-refine">
+                                      <div class="col-3">
+                                          <div class="input-group-desc">
+                                              <input class="input--style-5" type="number" name="area_code">
+                                              <label class="label--desc">Código</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-9">
+                                          <div class="input-group-desc">
+                                              <input class="input--style-5"  maxlength="8" minlength="8" type="number" [(ngModel)]="person.cellphone" name="cellphone">
+                                              <label class="label--desc">Número de Celular</label>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="form-row">
+                            <div class="name">Otros</div>
+                            <div class="value">
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                <div class="input-group-desc">
+                                    <input class="input--style-5" type="number"  maxlength="8" minlength="8"[(ngModel)]="person.other" name="other"  [ngModelOptions]="{standalone:true}"  > 
+                                    <br>
+                                </div>
+                                
+                                
+                                  </div>
+                                  <div class="col-2">
+<button type="button" class="btnbtn--red"   (click)="addTelefonos()">+</button>
+                                    </div>
+                            </div>
+                        </div>
+                        </div>
+                        
+                          <div>
+                              <button class="btn btn--radius-2 btn--red" type="submit">Enviar Formulario</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </body>
+  
+   
+    <footer>
+  <div class="footer-copyright text-center py-3">© 2019 Copyright:
+            <a href="https://www.kinal.org.gt/"> Kinal</a>
+          </div>     
+  </footer>
+  
+</html>       
+  
+  
+  
+  
+ 
+
+  
+  
+
