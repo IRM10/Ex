@@ -12,6 +12,9 @@ import { CoursesComponent } from './components/courses/courses.component';
 import { CareersComponent } from './components/careers/careers.component';
 import { UnitsComponent } from './components/units/units.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -29,7 +32,10 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot() // ToastrModule added
   ],
   providers: [RestService],
   bootstrap: [AppComponent]

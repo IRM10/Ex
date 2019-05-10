@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Person } from 'src/app/models/person/person'
 import { RestService } from '../../services/rest.service'
+import { ToastrService } from 'ngx-toastr';
+
 
 
 @Component({
@@ -13,7 +15,7 @@ export class PersonComponent implements OnInit {
 
   
   person: Person;
-  constructor(public rest: RestService) { 
+  constructor(public rest: RestService, private toastr: ToastrService) { 
 
 
     this.rest.setPerson(this.person);
@@ -33,6 +35,7 @@ export class PersonComponent implements OnInit {
     this.person.email = this.email;
     this.rest.setPerson(this.person).subscribe(res=>{
       console.log(res);
+      this.toastr.success('¡Registro almacenado correctamente!');
     });
    }
 
