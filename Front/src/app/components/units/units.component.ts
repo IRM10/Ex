@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Units } from 'src/app/models/units/units'
 import { RestService } from 'src/app/services/rest.service';
+import { ToastrService } from 'ngx-toastr';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-units',
@@ -8,27 +10,48 @@ import { RestService } from 'src/app/services/rest.service';
   styleUrls: ['./units.component.scss']
 })
 export class UnitsComponent implements OnInit {
-  units = []
-  unitss: Units;
-  constructor(public rest: RestService){
-    this.rest.setUnit(this.unitss);
-    this.unitss = new Units('')
-  }
+  
+  registerForm: FormGroup;
+  submitted = false;
+  unit: Units;
+  units= [];
+  constructor(private formBuilder: FormBuilder, public rest:RestService,private toastr: ToastrService) {
+   }
 
   ngOnInit() {
-    this.getData();
-    this.getUnits();
+    this.registerForm = this.formBuilder.group({
+      name: ['', Validators.required]
+  }, {
+     
+  });
+    this.getUnit();
   }
+
+  get f() { return this.registerForm.controls; }
 
   onSubmit(){
-    this.rest.setUnit(this.unitss).subscribe(res=>{
-      console.log(res);
-      this.limpiar();
-      this.getUnits();
-    });
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+      
+      this.toastr.error('Ingresa todos los campos requeridos');
+     
+    }else{
+
+        this.rest.setUnit(this.registerForm.value).subscribe(res=>{
+          
+         
+        this.toastr.success('¡Registro almacenado correctamente!');
+        console.log(res);
+        this.getUnit();
+          
+
+  })
+}
   }
 
-  getUnits(){
+  getUnit(){
     this.rest.getUnidades().subscribe(res =>{
       console.log(res);
       this.units = res.units
@@ -36,10 +59,7 @@ export class UnitsComponent implements OnInit {
   }
 
 
-  limpiar(){
-    this.unitss.name = '';
-  }
-
+ 
   getData(){
     fetch('https://jsonplaceholder.typicode.com/todos/1')
     .then(response => response.json())

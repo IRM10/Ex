@@ -36,26 +36,26 @@ mensaje = 'Guardar person ejecutado';
     return this.http.post(this.endpoint + '/guardar-persona', params, this.httpOptions).pipe(map(this.extractData));
   }
 
-  setFamily(family_guardar){
+  setFamily(family_guardar): Observable<any>{
     console.log(this.mensaje)
     var params = JSON.stringify(family_guardar);
     return this.http.post(this.endpoint + '/guardar-familia', params, this.httpOptions).pipe(map(this.extractData));
   }
 
 
-  setCourse(curso_guardar){
+  setCourse(curso_guardar): Observable<any>{
     console.log(this.mensaje)
     var params = JSON.stringify(curso_guardar);
     return this.http.post(this.endpoint + '/guardar-curso', params, this.httpOptions).pipe(map(this.extractData));
   }  
 
-  setUnit(unidad_guardar){
+  setUnit(unidad_guardar): Observable<any>{
     console.log(this.mensaje)
     var params = JSON.stringify(unidad_guardar);
     return this.http.post(this.endpoint + '/guardar-unidadAcademica', params, this.httpOptions).pipe(map(this.extractData));
   }
 
-  setCareer(carrera_guardar){
+  setCareer(carrera_guardar): Observable<any>{
     console.log(this.mensaje)
     var params = JSON.stringify(carrera_guardar);
     return this.http.post(this.endpoint + '/guardar-carreraEducativa', params, this.httpOptions).pipe(map(this.extractData));
