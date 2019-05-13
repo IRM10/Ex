@@ -77,6 +77,11 @@ mensaje = 'Guardar person ejecutado';
 
   }
 
+  getFamilies(): Observable<any>{
+    return this.http.get(this.endpoint + '/mostrar-familia',this.httpOptions).pipe(map(this.extractData));
+
+  }
+
   searchPerson(search){
     return this.http.post(this.endpoint + '/buscar-persona', {search}, this.httpOptions).pipe(map(this.extractData));
   }
@@ -84,7 +89,7 @@ mensaje = 'Guardar person ejecutado';
   updateFamily(actualizar_familia) {
     console.log(this.mensaje)
     var params = JSON.stringify(actualizar_familia);
-    return this.http.post(this.endpoint + '/actualizar-familia', params, this.httpOptions).pipe(map(this.extractData));
+    return this.http.put(this.endpoint + '/actualizar-familia', params, this.httpOptions).pipe(map(this.extractData));
   }
 
 //#endregion

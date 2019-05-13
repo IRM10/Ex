@@ -14,74 +14,145 @@
 
   
 
-  <div class="container">
-      
-    <Br>
-     <br>
-     <h1 class="titulos"> Registro de Familia </h1>
+    <div class="wrapper wrapper--w790">
+      <div class="card card-5">
+          <div class="card-heading">
+              <h2 class="title">Guardar Familia</h2>
+          </div>
+          <div class="card-body">
+                  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                      <div class="form-group">
+                              <div class="form-row">
+                                      <div class="name">Apellidos</div>
+                                      <div class="value">
+                                          <div class="input-group-desc">
+                                              <input class="input--style-5" formControlName="surnames"  [ngClass]="{ 'is-invalid': submitted && f.surnames.errors }">
+                                              <div *ngIf="submitted && f.surnames.errors" class="text-danger">
+                                                      <div *ngIf="f.surnames.errors.required">El Apellido es requerido</div>
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </div>                       
+                      </div>
+                     
+                     
+                      <div class="form-group">
+                          <button class="btn btn--radius-2 btn--red">Registrar Familia</button>
        
-    <br>
-     
-     <form #formularioRegistro="ngForm" (ngSubmit)="onSubmit()">
-       <div class="form-group">
-         <label for="exampleInputEmail1">Apellidos Familia</label>
-         <input type="text" [(ngModel)]="family.surnames" name="surnames" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe los apellidos de la familia">
-       </div>
-       
-       
-       <button type="submit" class="btn btn-primary">Guardar Familia</button>
-     </form>
-  </div>
+                      </div>
+              
+                  </form>
+              </div>
+          </div>
+      </div>
    <br>
-  
-  <div class="container">
+   <br><br>
+   <div class="wrapper wrapper--w790">
+    <div class="card card-5">
+        <div class="card-heading2">
+            <h2 class="title"> Familia Registrada</h2>
+        </div>
+        <div class="card-body">
+   <table class="table" >
+    <thead>
+      <tr>
+        <th>APELLIDOS FAMILIA</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+     
+        <tr  *ngFor=" let families of familias" >
+          <td>{{families.Surnames}} </td>
+          
+         </tr>
+      
+    </tbody>
+  </table> 
+  </div>
+  </div>
+   </div>
+  <br>
+  <br>
+  <br>
+
       
        <br>
        <br>
-        <h1 class="titulos"> Buscar Persona </h1>
+       <div class="wrapper wrapper--w790">
+        <div class="card card-5">
+            <div class="card-heading3">
+                <h2 class="title">Buscar Persona</h2>
+            </div>
+            <div class="card-body">
+                    <form #formularioRegistro="ngForm" (ngSubmit)="buscar()">
+                       
+                                <div class="form-row">
+                                        <div class="name">Buscar</div>
+                                        <div class="value">
+                                            <div class="input-group-desc">
+                                                <input class="input--style-5" [(ngModel)]="search" name="search">
+                                         
+                                            </div>
+                                        </div>
+                                    </div>   
+                                    
+                      
+                            <button class="btn btn--radius-2 btn--green">Buscar</button>
+         
+         
+                
+                          </form>                    
+                        </div>
+                       
+                </div>
+            </div>
         <br>
         <br>
-        <form #formularioRegistro="ngForm" (ngSubmit)="buscar()">
-        <input type="search" [(ngModel)]="search" name="search" placeholder="Ingresa el nombre de Encargado" class="form-control"  >
-        <br>
-        <button  name="encargado" class="btn btn-success"> Buscar</button>
-      </form>
-        <br>
-        <br>
-        <form #formularioRegistro="ngForm" (ngSubmit)="actualizar()">
 
             
+        <form [formGroup]="registerForm1" (ngSubmit)="actualizar()">
+            <div class="form-group">
 
-        <table  id="hola" class="display" class="table table-striped" class="table table-bordered">
+          <table  id="hola" class="display" class="table table-striped" class="table table-bordered">
           <thead>
             <tr>
               <th>NOMBRE PERSONA</th>
+              <th hidden>APELLIDOghS</th>
+              <th hidden>APELLIDOghS</th>
               <th>APELLIDOS</th>
               <th>EMAIL</th>
               <th>CELULAR</th>
               <th >SELECCIONAR ROL</th>
+              
     
             </tr>
           </thead>
           <tbody>
            
-              <tr  *ngFor=" let persona of results" >
-                <td  class="active" >{{persona.Name}} {{persona.Lastname}} </td>
-                <td  class="active">{{persona.Surname}} {{persona.SecondSurname}}</td>
-                <td  class="active">{{persona.Email}}</td>
-                <td  class="active">{{persona.Phones.Cellphone}}</td>
-                <td><Select  name="actualizar"  ><option>PADRE</option> <option>MADRE</option>  <option>HIJO</option> <option>ENCARGADO</option> </Select></td>
+              <tr  *ngFor=" let person of results" >
+                <td>  {{person.Name}} {{person.Lastname}} </td>
+                <td hidden> <input type="text" class="form-control" name="persona"  formControlName="personaId"  value={{person._id}} > {{person.Name}} {{person.Lastname}} </td>
+                <td hidden *ngFor=" let families of familias" > <input type="text" class="form-control" name="id"  formControlName="id"  value={{families._id}} ></td>
+                <td>{{person.Surname}} {{person.SecondSurname}}</td>
+                <td>{{person.Email}}</td>
+                <td>{{person.Phones.Cellphone}}</td>
+                <td><Select name="seleccionar" formCotrolName="seleccionar" ><option value="PADRE">PADRE</option> <option value="MADRE">MADRE</option>  <option value="HIJO">HIJO</option> <option value="ENCARGADO">ENCARGADO</option> </Select></td>
+            
+
               </tr>
             
           </tbody>
         </table> 
-      </form>
+        </div>
+    
         <br>
         <br>
         <button type="submit" class="btn btn-primary">Guardar Familia</button>
        
-  </div>
   
+  </form>
   
   
   
