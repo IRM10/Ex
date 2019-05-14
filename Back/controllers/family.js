@@ -69,14 +69,27 @@ function searchPerson(req, res){
 //#region Actualizar Familia 
 function update(req,res){
   var params = req.body
-  var familyId = req.params.id;
-  var father = params.father;
-  var mother = params.mother;
-  var son = params.son;
-  var attendant = params.attendant;
+  var familyId = params.id;
+  var personId = params.persona
+  var father = null;
+  var mother = null;
+  var son = null;
+  var attendant = null;
+   
+
+  if (params.seleccionar == 'PADRE'){
+    father = personId;
+  }else if (params.seleccionar == 'MADRE'){
+    mother = personId;
+    
+  }else if(params.seleccionar = 'HIJO'){
+    son = personId;
+  }else if(params.seleccionar = 'ENCARGADO'){
+    attendant = personId;
+  }
  
-  
-  Family.updateMany({_id:familyId},{$set: {'Father':father,'Mother': mother, 'Son':son,'Attendant':attendant} }, {New:true},(err,familyUpdated)=>{
+  console.log(familyId);
+  Family.findByIdAndUpdate(familyId,{$set: {'Father':father,'Mother': mother, 'Son':son,'Attendant':attendant} }, {New:true},(err,familyUpdated)=>{
       
           if(err){
               res.status(500).send({message: 'Error al actualizar la familia'}); 
@@ -95,14 +108,20 @@ function update(req,res){
 
 //#region Listar
 function list(req,res){    
-  Family.find({},(err,families)=>{
+
+    Family.find().sort({$natural: -1}).limit(1).exec(function(err, familias){
+
+    
       if(err){
           res.status(500).send({message: 'No se ha podido listar las familias'});
       }else{
-          res.status(200).send({families});
+        if(!familias){
+          res.status(200).send({message:'Hola'});
+        }
+          res.status(200).send({familias});
       }
-  });
 
+});
 }
 //#endregion
 

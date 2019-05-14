@@ -9,7 +9,7 @@ api.post('/guardar-familia', FamilyController.saveFamily);
 
 api.post('/buscar-persona', FamilyController.searchPerson);
 
-api.put('/actualizar-familia/:id',FamilyController.update);
+api.post('/actualizar-familia',FamilyController.update);
 
 api.get('/mostrar-familia', FamilyController.list)
 

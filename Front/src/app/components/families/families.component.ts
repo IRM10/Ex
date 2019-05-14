@@ -85,8 +85,8 @@ export class FamiliesComponent implements OnInit {
         if(!res){
             console.log();
         }else{
-        //this.results = res.results;
-        //console.log(this.results)
+        this.results = res.results;
+        console.log(this.results)
     
         } 
       });
