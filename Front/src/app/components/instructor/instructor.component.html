@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<header>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</header>
+ 
+        <app-nav-bar></app-nav-bar>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <body>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <!------ Include the above in your HEAD tag ---------->
+        
+        <form class="form-horizontal" method="POST" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="Code" class="control-label col-xs-2">Codigo</label>
+                <div class="col-xs-5">
+                    <input [(ngModel)]="instructor.Code" name="Code" type="text" class="form-control" id="Code" placeholder="Codigo">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Profesion" class="control-label col-xs-2">Profesion</label>
+                <div class="col-xs-5">
+                    <input [(ngModel)]="instructor.Profesion" name="Profesion" type="text" class="form-control" id="Profesion" placeholder="Profesion">
+                </div>
+            </div>
+
+
+                  <div class="form-group">
+                      <label or="Code" class="control-label col-xs-2">Buscar Persona</label>
+                  </div>
+                  <div class="col-xs-5">
+                          <form class="control-label col-xs-2" #formularioRegistro="ngForm" (ngSubmit)="buscar()">
+                             
+                                      <div class="control-label col-xs-2">
+                                              <div class="name">Buscar</div>
+                                              <div class="value">
+                                                  <div class="input-group-desc">
+                                                      <input class="input--style-5" [(ngModel)]="search" name="search">
+                                               
+                                                  </div>
+                                              </div>
+                                          </div>   
+                                          
+                            
+                                  <button class="btn btn--radius-2 btn--green">Seleccionar Persona</button>
+               
+               
+                      
+                                </form>                    
+                              </div>
+                             
+             
+            
+            <div class="form-group">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <button type="submit" class="btn btn-primary">Crear instructor</button>
+                </div>
+            </div>
+        </form>
+        
+
+
+
+
+
+
+
+      <div class="wrapper wrapper--w790">
+          <div class="card card-5">
+              <div class="card-heading">
+                  <h2 class="title">Listado de instructores</h2>
+              </div>   
+          <table  class="table" >
+              <thead>
+                <tr>
+                  <th>CODIGO</th>
+                  <th>PROFESION</th>
+                  <th>INFORMACION PERSONAL</th>
+                  <th>Borrar</th>
+                </tr>
+              </thead>
+              <tbody>  
+                  <tr *ngFor="let person of results">               
+                    <td>{{instructor.Code}}</td>
+                    <td>{{instructor.Profesion}}</td>
+                    <td>{{person.Name}} {{person.Lastname}} </td>
+                    <td class="active"><button class="btn btn-danger" (click)="deleteInstructor(i)">Elimnar</button></td>
+                  </tr>
+              </tbody>
+            </table> 
+          </div>
+      </div>
+  </body>
+<br>
+<br>
+<br>
+    <footer>
+  <div class="footer-copyright text-center py-3">© 2019 Copyright:
+            <a href="https://www.kinal.org.gt/"> Kinal</a>
+          </div>     
+  </footer>
+  
+</html>       

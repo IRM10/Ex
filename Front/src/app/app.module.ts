@@ -16,6 +16,8 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RedComponent } from './components/red/red.component';
+import { InstructorComponent } from './components/instructor/instructor.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CoursesComponent,
     CareersComponent,
     UnitsComponent,
-    NavBarComponent
+    NavBarComponent,
+    RedComponent,
+    InstructorComponent
   ],
   imports: [
     BrowserModule,

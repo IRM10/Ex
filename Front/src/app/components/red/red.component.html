@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<header>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</header>
+ 
+        <app-nav-bar></app-nav-bar>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <body>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <!------ Include the above in your HEAD tag ---------->
+        
+        <form class="form-horizontal" method="POST" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="Name" class="control-label col-xs-2">Nombre</label>
+                <div class="col-xs-5">
+                    <input [(ngModel)]="red.Name" name="Name" type="text" class="form-control" id="Name" placeholder="Nombre">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Career" class="control-label col-xs-2">Carrera</label>
+                <div class="col-xs-5">
+                    <input [(ngModel)]="red.Career" name="Career" type="text" class="form-control" id="Career" placeholder="Carrera">
+                </div>
+            </div>
+              <div class="form-group">
+                <label for="Courses" class="control-label col-xs-2">Cursos</label>
+                <div class="col-xs-5">
+                    <input [(ngModel)]="red.Courses"  [ngModelOptions]="{standalone:true}" name="Courses" type="text" class="form-control" id="Courses" placeholder="Cursos">
+                </div>
+                <button type="button" (click)="addCourses()" class="btn btn-success mamarre">Agregar</button>
+            </div>
+            <div class="form-group">
+                <label for="FechaInicio" class="control-label col-xs-2">Fecha Inicio</label>
+                <div class="col-xs-5">
+                    <input [(ngModel)]="red.FechaInicio" name="FechaInicio" type="date" class="form-control" id="FechaInicio" placeholder="Fecha">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="FechaEnd" class="control-label col-xs-2">Fecha Final</label>
+                <div class="col-xs-5">
+                    <input [(ngModel)]="red.FechaEnd" name="FechaEnd" type="date" class="form-control" id="FechaEnd" placeholder="Final">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <button type="submit" class="btn btn-primary">Crear Red estudio</button>
+                </div>
+            </div>
+        </form>
+        
+
+
+
+
+
+
+
+      <div class="wrapper wrapper--w790">
+          <div class="card card-5">
+              <div class="card-heading">
+                  <h2 class="title">Listado de Redes de Estudio</h2>
+              </div>   
+          <table  class="table" >
+              <thead>
+                <tr>
+                  <th>NOMBRE</th>
+                  <th>CURSOS</th>
+                  <th>CARRERAS</th>
+                  <th>FECHA DE INICIO</th>
+                  <th>FECHA DE FIN</th>
+        
+                </tr>
+              </thead>
+              <tbody>  
+                  <tr *ngFor="let red of reds">               
+                    <td >{{red.Name}}</td>
+                    <td>{{red.Courses}}</td>
+                    <td>{{red.Career}}</td>
+                    <td>{{red.FechaInicio}}</td>
+                    <td>{{red.FechaEnd}}</td>
+                  </tr>
+              </tbody>
+            </table> 
+          </div>
+      </div>
+  </body>
+<br>
+<br>
+<br>
+    <footer>
+  <div class="footer-copyright text-center py-3">© 2019 Copyright:
+            <a href="https://www.kinal.org.gt/"> Kinal</a>
+          </div>     
+  </footer>
+  
+</html>       

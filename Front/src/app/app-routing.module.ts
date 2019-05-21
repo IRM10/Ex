@@ -7,6 +7,8 @@ import { CoursesComponent } from './components/courses/courses.component';
 import { CareersComponent } from './components/careers/careers.component';
 import { Families } from './models/families/families';
 import { FamiliesComponent } from './components/families/families.component';
+import { RedComponent } from './components/red/red.component';
+import { InstructorComponent } from './components/instructor/instructor.component';
 
 
 const routes: Routes = [
@@ -17,6 +19,8 @@ const routes: Routes = [
   {path: 'course', component: CoursesComponent},
   {path: 'career', component: CareersComponent},
   {path: 'families', component: FamiliesComponent},
+  {path: 'red', component: RedComponent},
+  {path: 'instructor', component: InstructorComponent},
   {path: '**', component: InicioComponent}
 ];
 

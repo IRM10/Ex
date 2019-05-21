@@ -61,6 +61,30 @@ mensaje = 'Guardar person ejecutado';
     return this.http.post(this.endpoint + '/guardar-carreraEducativa', params, this.httpOptions).pipe(map(this.extractData));
 
   }
+  setRed(redEstudio_guardar): Observable<any>{
+    console.log(this.mensaje)
+    var params = JSON.stringify(redEstudio_guardar);
+    return this.http.post(this.endpoint + '/guardar-redEstudio', params, this.httpOptions).pipe(map(this.extractData));
+
+  }
+  getRedes(): Observable<any>{
+    return this.http.get(this.endpoint + '/mostrar-redEstudio',this.httpOptions).pipe(map(this.extractData));
+
+  }
+  setInstructor(instructor_guardar): Observable<any>{
+    console.log(this.mensaje)
+    var params = JSON.stringify(instructor_guardar);
+    return this.http.post(this.endpoint + '/guardar-instructor', params, this.httpOptions).pipe(map(this.extractData));
+
+  }
+  deleteInstructor(id): Observable<any>{
+    var params = id;
+    return this.http.delete(this.endpoint + '/eliminar-instructor/' + params, this.httpOptions).pipe(map(this.extractData));
+  }
+  getInstructores(): Observable<any>{
+    return this.http.get(this.endpoint + '/mostrar-instructor',this.httpOptions).pipe(map(this.extractData));
+
+  }
 
   getCursos(): Observable<any>{
     return this.http.get(this.endpoint + '/mostrar-curso',this.httpOptions).pipe(map(this.extractData));
@@ -79,6 +103,10 @@ mensaje = 'Guardar person ejecutado';
 
   getFamilies(): Observable<any>{
     return this.http.get(this.endpoint + '/mostrar-familia',this.httpOptions).pipe(map(this.extractData));
+
+  }
+  getPerson(): Observable<any>{
+    return this.http.get(this.endpoint + '/mostrar-persona',this.httpOptions).pipe(map(this.extractData));
 
   }
 
