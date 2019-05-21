@@ -38,29 +38,13 @@
             </div>
 
 
-                  <div class="form-group">
-                      <label or="Code" class="control-label col-xs-2">Buscar Persona</label>
-                  </div>
-                  <div class="col-xs-5">
-                          <form class="control-label col-xs-2" #formularioRegistro="ngForm" (ngSubmit)="buscar()">
-                             
-                                      <div class="control-label col-xs-2">
-                                              <div class="name">Buscar</div>
-                                              <div class="value">
-                                                  <div class="input-group-desc">
-                                                      <input class="input--style-5" [(ngModel)]="search" name="search">
-                                               
-                                                  </div>
-                                              </div>
-                                          </div>   
-                                          
-                            
-                                  <button class="btn btn--radius-2 btn--green">Seleccionar Persona</button>
-               
-               
-                      
-                                </form>                    
-                              </div>
+            <div class="form-group">
+                <label for="Profesion" class="control-label col-xs-2">Persona</label>
+                <div class="col-xs-5">
+                    <select [(ngModel)]="instructor.PersonalInfo" name="personalInfo" class="form-control" id="exampleInputPassword1" placeholder="Selecciona la persona">
+                        <option *ngFor="let person of people" value="{{person._id}}"  >{{person.Name}}</option>
+                      </select>                </div>
+            </div>
                              
              
             

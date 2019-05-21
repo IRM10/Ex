@@ -18,11 +18,14 @@ export class InstructorComponent implements OnInit {
   instructor: Instructor;
   results=[];
   instructors= [];
+  people=[];
   constructor(private formBuilder: FormBuilder, public rest:RestService,private toastr: ToastrService) {
     this.instructor = new Instructor('','',null);
   }
 
   ngOnInit() {
+    
+  this.getPersona()
     this.registerForm = this.formBuilder.group({
       Code: ['', Validators.required],
       Profesion: ['', Validators.required],
@@ -43,6 +46,7 @@ export class InstructorComponent implements OnInit {
     this.instructor.Profesion = this.instructor.Profesion;
     this.instructor.PersonalInfo = this.instructor.PersonalInfo;
     this.rest.setInstructor(this.instructor).subscribe(res=>{
+      this.getInstructores();
     console.log(res);
     // stop here if form is invalid
     if (this.instructor.Code == "" || this.instructor.Profesion == "" || this.instructor.PersonalInfo == null) {
@@ -83,6 +87,13 @@ else if(res.message == 'El Instructor ya ha sido registrada'){
         } 
       });
     
+  }
+
+  getPersona(){
+    this.rest.getPerson().subscribe(res =>{
+      console.log(res);
+      this.people = res.people
+    })
   }
   
   deleteInstructor(id){
